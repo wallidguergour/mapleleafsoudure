@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'fr' }}">
+<head>
+
+  <meta charset="UTF-8">
+
+{% include consent-head.html %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="robots" content="{{ page.robots | default: 'index, follow, max-image-preview:large' }}">
+  <meta name="theme-color" content="#E7E6E6">
+
+  <!-- SEO : title, description, canonical, Open Graph, JSON-LD (jekyll-seo-tag) -->
+  {% seo %}
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/basic.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/fontawesome.css">
+  <link rel="stylesheet" href="/css/solid.css">
+  <link rel="stylesheet" href="/css/theme-colors/teal.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+</head>
+
+<body class="grained-off home">
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="centrize full-width">
+      <div class="vertical-center">
+        <div class="spinner">
+          <div class="double-bounce1"></div>
+          <div class="double-bounce2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container -->
+  <div class="container">
+
+    <!-- Cursor -->
+    <div class="cursor-follower"></div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="head-top">
+
+        <!-- Menu button (mobile) -->
+        <a href="#" class="menu-btn"><span></span></a>
+
+        <!-- Logo texte -->
+        <div class="logo">
+          <a href="/">Maple Leaf Soudure</a>
+        </div>
+
+        <!-- Nav -->
+        <div class="top-menu hover-masks">
+          <div class="top-menu-nav">
+            <div class="menu-topmenu-container">
+              <ul class="menu">
+                <li class="menu-item"><a href="/">Accueil</a></li>
+                <li class="menu-item"><a href="/blog/">Blog</a></li>
+                <li class="menu-item"><a href="/offres/">Analyses d'offres</a></li>
+                <li class="menu-item"><a href="/soudeur-a-coup-sur/">Formation</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Wrapper -->
+    <div class="wrapper">
+
+      {{ content }}
+
+    </div><!-- /.wrapper -->
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="copy">
+        <p>&copy; {{ 'now' | date: "%Y" }}, Maple Leaf Soudure. Tous droits réservés.</p>
+        {% include footer-links.html %}
+      </div>
+    </footer>
+
+    <!-- Lignes décoratives -->
+    <div class="lines">
+      <div class="line-col"></div>
+      <div class="line-col"></div>
+      <div class="line-col"></div>
+      <div class="line-col"></div>
+      <div class="line-col"></div>
+    </div>
+
+  </div><!-- /.container -->
+
+  <!-- Back to top -->
+  <button id="backToTop" aria-label="Retour en haut de page">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.validate.js"></script>
+  <script src="/js/grained.js"></script>
+  <script src="/js/scripts.js"></script>
+  <script src="/js/sales.js"></script>
+  {% if page.youtube_id %}<script src="/js/video.js" defer></script>{% endif %}
+
+{% include cookie-consent.html %}
+
+</body>
+</html>

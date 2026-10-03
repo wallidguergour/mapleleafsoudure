@@ -1,0 +1,98 @@
+  <!-- Bandeau de consentement : CookieConsent v3 (orestbida) -->
+  <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@{{ site.cookieconsent_version }}/dist/cookieconsent.umd.js"></script>
+  <script>
+    (function () {
+      if (!window.CookieConsent) return;
+
+      // Statistiques acceptées : Consent Mode mis à jour, puis chargement de Tag Manager.
+      function appliquerConsentement() {
+        if (CookieConsent.acceptedCategory('analytics')) {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+          window.mlsLoadGTM();
+        } else {
+          gtag('consent', 'update', { analytics_storage: 'denied' });
+        }
+      }
+
+      var politique = '<a href="/politique-de-confidentialite/">Politique de confidentialité</a>';
+
+      CookieConsent.run({
+        cookie: {
+          name: 'cc_cookie',
+          expiresAfterDays: 182
+        },
+
+        guiOptions: {
+          consentModal: {
+            layout: 'box',
+            position: 'bottom left',
+            equalWeightButtons: true,
+            flipButtons: false
+          },
+          preferencesModal: {
+            layout: 'box',
+            equalWeightButtons: true,
+            flipButtons: false
+          }
+        },
+
+        categories: {
+          necessary: {
+            enabled: true,
+            readOnly: true
+          },
+          analytics: {
+            autoClear: {
+              cookies: [
+                { name: /^_ga/ },
+                { name: '_gid' }
+              ],
+              reloadPage: true
+            }
+          }
+        },
+
+        onConsent: appliquerConsentement,
+        onChange: appliquerConsentement,
+
+        language: {
+          default: 'fr',
+          translations: {
+            fr: {
+              consentModal: {
+                title: 'Vos choix sur les cookies',
+                description: 'Ce site peut utiliser des cookies de mesure d’audience (statistiques), uniquement si vous les acceptez. Vous pouvez changer d’avis à tout moment avec le lien « Gérer mes cookies » en bas de page.',
+                acceptAllBtn: 'Tout accepter',
+                acceptNecessaryBtn: 'Tout refuser',
+                showPreferencesBtn: 'Personnaliser',
+                footer: politique
+              },
+              preferencesModal: {
+                title: 'Gérer mes cookies',
+                acceptAllBtn: 'Tout accepter',
+                acceptNecessaryBtn: 'Tout refuser',
+                savePreferencesBtn: 'Enregistrer mes choix',
+                closeIconLabel: 'Fermer',
+                sections: [
+                  {
+                    title: 'Cookies nécessaires',
+                    description: 'Indispensables au fonctionnement du site, notamment pour mémoriser vos choix de consentement. Ils ne peuvent pas être désactivés.',
+                    linkedCategory: 'necessary'
+                  },
+                  {
+                    title: 'Statistiques',
+                    description: 'Mesure d’audience avec Google Analytics, via Google Tag Manager. Ces outils ne sont chargés que si vous activez cette catégorie.',
+                    linkedCategory: 'analytics'
+                  },
+                  {
+                    title: 'En savoir plus',
+                    description: 'Consultez la ' + politique + '.'
+                  }
+                ]
+              }
+            }
+          }
+        }
+      });
+    })();
+  </script>

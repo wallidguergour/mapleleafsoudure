@@ -1,0 +1,33 @@
+---
+layout: default
+title: "Blog"
+description: "Les articles de Maple Leaf Soudure : carrière, qualification et mobilité internationale pour soudeurs."
+permalink: /blog/
+---
+
+<div class="section about mls-page">
+  <div class="content content-box">
+    <div class="desc">
+
+      <h1 class="title_inner">Blog</h1>
+
+      {% if site.posts.size > 0 %}
+      <ul class="mls-post-list">
+        {% for post in site.posts %}
+        <li>
+          <p class="mls-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{% include date-fr.html date=post.date %}</time>
+            {% if post.youtube_id %}<span aria-hidden="true">·</span> Vidéo{% endif %}
+          </p>
+          <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+          {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>Les premiers articles arrivent bientôt.</p>
+      {% endif %}
+
+    </div>
+  </div>
+</div>

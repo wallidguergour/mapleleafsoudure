@@ -1,0 +1,23 @@
+{%- comment -%}
+  Convertit include.time ("mm:ss", "h:mm:ss", ou un nombre de secondes) en :
+  - mls_seconds : nombre de secondes
+  - mls_label   : libellé affiché (mm:ss ou h:mm:ss)
+  Astuce : écrire les horodatages entre guillemets dans l'en-tête ("12:30").
+{%- endcomment -%}
+{%- assign mls_time = include.time | append: "" | strip -%}
+{%- assign mls_seconds = 0 -%}
+{%- if mls_time contains ":" -%}
+  {%- assign mls_parts = mls_time | split: ":" -%}
+  {%- for mls_part in mls_parts -%}
+    {%- assign mls_seconds = mls_seconds | times: 60 | plus: mls_part -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign mls_seconds = mls_time | plus: 0 -%}
+{%- endif -%}
+{%- assign mls_h = mls_seconds | divided_by: 3600 -%}
+{%- assign mls_m = mls_seconds | modulo: 3600 | divided_by: 60 -%}
+{%- assign mls_s = mls_seconds | modulo: 60 -%}
+{%- capture mls_label -%}
+  {%- if mls_h > 0 -%}{{ mls_h }}:{%- if mls_m < 10 -%}0{%- endif -%}{%- endif -%}
+  {%- if mls_h == 0 and mls_m < 10 -%}0{%- endif -%}{{ mls_m }}:{%- if mls_s < 10 -%}0{%- endif -%}{{ mls_s }}
+{%- endcapture -%}

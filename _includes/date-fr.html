@@ -1,0 +1,4 @@
+{%- assign mls_mois = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
+{%- assign mls_index = include.date | date: "%-m" | minus: 1 -%}
+{%- assign mls_jour = include.date | date: "%-d" -%}
+{{ mls_jour }}{% if mls_jour == "1" %}er{% endif %} {{ mls_mois[mls_index] }} {{ include.date | date: "%Y" }}

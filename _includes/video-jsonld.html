@@ -1,0 +1,50 @@
+{%- comment -%}
+  Données structurées VideoObject, chapitres déclarés en Clip (hasPart).
+  endOffset d'un chapitre = début du suivant ; pour le dernier, video_duration si renseigné.
+{%- endcomment -%}
+{%- assign mls_vid = page.youtube_id -%}
+{%- assign mls_duration = nil -%}
+{%- if page.video_duration -%}
+  {%- include time-to-seconds.html time=page.video_duration -%}
+  {%- assign mls_duration = mls_seconds -%}
+{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": {{ page.title | jsonify }},
+  "description": {{ page.description | default: site.description | jsonify }},
+  "thumbnailUrl": ["https://i.ytimg.com/vi/{{ mls_vid }}/hqdefault.jpg"],
+  "uploadDate": {{ page.video_upload_date | default: page.date | date_to_xmlschema | jsonify }},
+  "embedUrl": "https://www.youtube-nocookie.com/embed/{{ mls_vid }}",
+  "url": "https://www.youtube.com/watch?v={{ mls_vid }}"
+  {%- if mls_duration %},
+  "duration": "PT{{ mls_duration }}S"
+  {%- endif %}
+  {%- if page.chapters and page.chapters.size > 0 %},
+  "hasPart": [
+    {%- for chapitre in page.chapters %}
+    {%- include time-to-seconds.html time=chapitre.time %}
+    {%- assign mls_start = mls_seconds %}
+    {%- assign mls_end = nil %}
+    {%- unless forloop.last %}
+      {%- assign mls_next = page.chapters[forloop.index] %}
+      {%- include time-to-seconds.html time=mls_next.time %}
+      {%- assign mls_end = mls_seconds %}
+    {%- else %}
+      {%- assign mls_end = mls_duration %}
+    {%- endunless %}
+    {
+      "@type": "Clip",
+      "name": {{ chapitre.title | jsonify }},
+      "startOffset": {{ mls_start }},
+      {%- if mls_end %}
+      "endOffset": {{ mls_end }},
+      {%- endif %}
+      "url": "https://www.youtube.com/watch?v={{ mls_vid }}&t={{ mls_start }}"
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+  {%- endif %}
+}
+</script>

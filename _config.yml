@@ -1,0 +1,64 @@
+# _config.yml : mapleleafsoudure.com
+
+# Site
+title: "Maple Leaf Soudure"
+tagline: "Carrière, qualification et mobilité internationale pour soudeurs"
+description: "Maple Leaf accompagne les soudeurs qui veulent piloter leur carrière, viser les entreprises qui paient et préparer leur mobilité internationale."
+author: "Maple Leaf Soudure"
+url: "https://mapleleafsoudure.com"
+baseurl: ""
+lang: "fr"
+locale: "fr_FR"
+
+# Tag Manager (chargé uniquement après acceptation des statistiques)
+gtm_id: "GTM-KXXWBXJK"
+
+# Bandeau de consentement (CookieConsent v3, orestbida)
+cookieconsent_version: "3.1.0"
+
+# Jekyll
+theme: null
+permalink: pretty
+timezone: Europe/Paris
+
+# Plugins (compatibles GitHub Pages)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# jekyll-seo-tag : données de l'organisation
+social:
+  name: "Maple Leaf Soudure"
+  links: []
+
+# Valeurs par défaut
+defaults:
+  # Image de partage par défaut (provisoire, à remplacer par une image 1200x630)
+  - scope:
+      path: ""
+    values:
+      image: /images/bg/hero.webp
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      permalink: /blog/:title/
+
+# Exclure du build (docs internes : jamais publiés)
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - "*.sh"
+  - CLAUDE.md
+  - README.md
+  - ANALYTICS.md
+  - AUDIT-CONVERSION.md
+  - AVANCEMENT.md
+  - COPYWRITING-PLAYBOOK.md
+  - copy-soudeur-a-coup-sur-v2.md
+  - cahier-des-charges-mapleleaf-press.md
+  - REFERENCE-ancienne-page.html
+  - .vs/
+  - .claude/

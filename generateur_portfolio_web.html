@@ -1,0 +1,643 @@
+---
+title: "Générateur de portfolio PDF"
+description: "Générateur de portfolio PDF pour soudeurs : remplis tes informations, ajoute tes photos et télécharge ton PDF. Tout se passe dans ton navigateur."
+permalink: /generateur_portfolio_web.html
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+
+{% include consent-head.html %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large">
+{% seo %}
+<link rel="shortcut icon" href="/images/favicons/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3eee4; --paper:#faf6ec; --ink:#14110d; --ink-soft:#5b5448;
+  --rule:#c9bfa8; --rule-soft:#ddd3bd; --hot:#c8421f; --hot-deep:#8a2a10;
+  --serif:"Fraunces","Iowan Old Style",Georgia,serif;
+  --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+.app{display:grid;grid-template-columns:minmax(340px,440px) 1fr;min-height:100vh}
+@media(max-width:900px){.app{grid-template-columns:1fr}}
+
+.editor{background:var(--paper);border-right:1px solid var(--rule);padding:28px 26px 60px;overflow-y:auto;max-height:100vh}
+@media(max-width:900px){.editor{max-height:none;border-right:none;border-bottom:1px solid var(--rule)}}
+.brand{font-family:var(--serif);font-weight:800;font-size:22px;letter-spacing:-.01em;margin-bottom:2px}
+.brand .dot{color:var(--hot)}
+.tagline{color:var(--ink-soft);font-size:13px;margin-bottom:18px}
+.privacy{font-size:11.5px;color:var(--ink-soft);background:#eef3ec;border:1px solid #cfe0cb;border-radius:8px;padding:9px 11px;margin-bottom:18px;line-height:1.5}
+.privacy b{color:#3a6b34}
+.steps{font-size:12px;font-family:var(--mono);color:var(--hot-deep);background:#f4e4dc;border:1px solid #e6c9bd;border-radius:8px;padding:10px 12px;margin-bottom:22px;line-height:1.6}
+
+/* Sélecteur de modèle */
+.tpl-switch{display:flex;gap:8px;margin-bottom:24px}
+.tpl-btn{flex:1;font-family:var(--sans);font-size:13px;font-weight:600;padding:10px;border:1px solid var(--rule);border-radius:8px;background:#fff;color:var(--ink-soft);cursor:pointer;transition:.15s}
+.tpl-btn:hover{border-color:var(--hot)}
+.tpl-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+.group{margin-bottom:22px}
+.group-title{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--rule-soft);padding-bottom:6px;margin-bottom:14px}
+label{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin:0 0 4px}
+input[type=text],input[type=email],textarea{width:100%;font-family:var(--sans);font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:7px;padding:9px 11px;margin-bottom:12px;transition:border-color .15s}
+input:focus,textarea:focus{outline:none;border-color:var(--hot)}
+textarea{resize:vertical;min-height:64px;line-height:1.45}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* Étiquettes techniques (procédés, matériaux, positions) */
+.sug{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.sug button{font-family:var(--mono);font-size:11px;padding:5px 9px;border:1px solid var(--rule);border-radius:20px;background:#fff;color:var(--ink-soft);cursor:pointer;transition:.12s}
+.sug button:hover{border-color:var(--hot);color:var(--hot-deep)}
+.sug button.on{background:var(--hot);border-color:var(--hot);color:#fff}
+.tag-add{display:flex;gap:6px;margin-bottom:10px}
+.tag-add input{margin-bottom:0;flex:1}
+.btn-tagadd{flex:0 0 auto;width:38px;border:1px solid var(--rule);border-radius:7px;background:#fff;cursor:pointer;font-size:18px;color:var(--ink-soft)}
+.btn-tagadd:hover{border-color:var(--hot);color:var(--hot-deep)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips .chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;background:#f1ead9;border:1px solid var(--rule);border-radius:20px;padding:4px 6px 4px 11px}
+.chips .chip button{background:none;border:none;cursor:pointer;color:var(--ink-soft);font-size:14px;line-height:1;padding:0 2px}
+.chips .chip button:hover{color:var(--hot-deep)}
+
+.real-edit{border:1px solid var(--rule);border-radius:10px;padding:14px;margin-bottom:14px;background:#fff;position:relative}
+.real-edit .num{font-family:var(--mono);font-size:11px;color:var(--hot);margin-bottom:8px}
+.btn-remove{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--ink-soft);cursor:pointer;font-size:18px;line-height:1;padding:2px 6px;border-radius:5px}
+.btn-remove:hover{background:#f4e4dc;color:var(--hot-deep)}
+
+.photo-drop{border:1.5px dashed var(--rule);border-radius:8px;padding:14px;text-align:center;cursor:pointer;font-size:12px;color:var(--ink-soft);background:#fcfaf3;transition:.15s;margin-bottom:10px;position:relative}
+.photo-drop:hover{border-color:var(--hot);color:var(--hot-deep)}
+.photo-drop.has-img{padding:0;border-style:solid;overflow:hidden}
+.photo-drop img{display:block;width:100%;height:120px;object-fit:cover}
+.photo-drop input{display:none}
+.photo-drop.busy{opacity:.6;pointer-events:none}
+
+.btn{font-family:var(--sans);font-weight:600;font-size:14px;border-radius:8px;padding:11px 16px;cursor:pointer;border:1px solid var(--rule);background:#fff;color:var(--ink);transition:.15s;width:100%}
+.btn:hover{border-color:var(--hot);color:var(--hot-deep)}
+.btn-add{border-style:dashed;margin-bottom:8px}
+.btn-primary{background:var(--hot);border-color:var(--hot);color:#fff;font-size:15px;padding:14px;margin-top:8px}
+.btn-primary:hover{background:var(--hot-deep);border-color:var(--hot-deep);color:#fff}
+.btn-reset{background:none;border:none;color:var(--ink-soft);font-size:12px;text-decoration:underline;cursor:pointer;width:auto;display:block;margin:12px auto 0}
+.hint{font-size:11px;color:var(--ink-soft);text-align:center;margin-top:8px;line-height:1.5}
+.saved-tag{font-size:11px;font-family:var(--mono);color:#3a6b34;text-align:center;margin-top:10px;opacity:0;transition:opacity .3s}
+.saved-tag.show{opacity:1}
+
+.preview-wrap{padding:36px;display:flex;justify-content:center;align-items:flex-start;overflow-y:auto;max-height:100vh}
+@media(max-width:900px){.preview-wrap{max-height:none;padding:18px}}
+
+/* ─── Feuille A4 (commune) ─── */
+.sheet{background:#fff;width:210mm;min-height:297mm;padding:20mm 18mm;box-shadow:0 10px 40px rgba(20,17,13,.12);color:var(--ink)}
+@media(max-width:900px){.sheet{width:100%;padding:24px}}
+.sheet-head{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:22px;display:flex;gap:18px;align-items:flex-start}
+.sheet-avatar{width:74px;height:74px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--rule)}
+.sheet-head .who{flex:1}
+.sheet-name{font-family:var(--serif);font-weight:800;font-size:30px;line-height:1.05;letter-spacing:-.02em}
+.sheet-role{font-size:15px;color:var(--hot-deep);font-weight:600;margin-top:3px}
+.sheet-contact{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-top:8px;line-height:1.7}
+.sheet-contact span{margin-right:14px;white-space:nowrap}
+.sheet-bio{font-size:14px;line-height:1.6;color:#2b2620;margin-bottom:26px;max-width:62ch}
+.sheet-section-title{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sheet-section-title::before{content:"■";color:var(--hot);font-size:9px}
+.empty-note{color:var(--ink-soft);font-style:italic;font-size:13px}
+
+/* Bloc profil technique (commun aux modèles) */
+.sheet-tech{margin-bottom:26px}
+.tech-row{display:flex;gap:10px;margin-bottom:9px;align-items:baseline}
+.tech-label{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);flex:0 0 92px;padding-top:3px}
+.tech-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tech-tags .t{font-size:12px;background:#f1ead9;border:1px solid var(--rule-soft);border-radius:5px;padding:3px 9px}
+.tech-tags .t.proc{font-family:var(--mono);font-size:11px}
+
+/* ─── MODÈLE « Galerie » : grille 2 colonnes, photo-forward ─── */
+.sheet--galerie .real-list{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.sheet--galerie .real-item{break-inside:avoid;page-break-inside:avoid}
+.sheet--galerie .real-item .ph{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;background:#ece5d6;display:block;margin-bottom:8px}
+.sheet--galerie .real-item .ph-empty{display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:12px;font-family:var(--mono)}
+.sheet--galerie .real-item .r-title{font-family:var(--serif);font-weight:600;font-size:16px;line-height:1.2}
+.sheet--galerie .real-item .r-meta{font-family:var(--mono);font-size:11px;color:var(--hot-deep);margin:3px 0 5px}
+.sheet--galerie .real-item .r-desc{font-size:12.5px;line-height:1.5;color:#3a342c}
+
+/* ─── MODÈLE « Dossier » : une colonne, grande photo + texte à droite ─── */
+.sheet--dossier .real-list{display:flex;flex-direction:column;gap:20px}
+.sheet--dossier .real-item{display:grid;grid-template-columns:38% 1fr;gap:18px;align-items:start;break-inside:avoid;page-break-inside:avoid;padding-bottom:18px;border-bottom:1px solid var(--rule-soft)}
+.sheet--dossier .real-item:last-child{border-bottom:none}
+.sheet--dossier .real-item .ph{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;background:#ece5d6;display:block}
+.sheet--dossier .real-item .ph-empty{display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:12px;font-family:var(--mono)}
+.sheet--dossier .real-item .r-title{font-family:var(--serif);font-weight:600;font-size:19px;line-height:1.15}
+.sheet--dossier .real-item .r-meta{font-family:var(--mono);font-size:12px;color:var(--hot-deep);margin:4px 0 7px}
+.sheet--dossier .real-item .r-desc{font-size:13.5px;line-height:1.55;color:#3a342c}
+
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff}
+  .editor,.preview-wrap{padding:0;max-height:none;overflow:visible}
+  .app{display:block}
+  .editor{display:none}
+  .sheet{width:auto;min-height:auto;box-shadow:none;padding:14mm 14mm}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+<style>
+/* ================================================
+   HEADER / FOOTER : charte Maple Leaf Soudure
+   Bloc dedie, sans impact sur les styles de l'outil
+================================================ */
+.mlps-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 28px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(20, 44, 53, 0.12);
+  font-family: "Roboto", sans-serif;
+}
+
+.mlps-header__logo {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: #142C35;
+  text-decoration: none;
+}
+
+.mlps-header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.mlps-header__nav a {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(20, 44, 53, 0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mlps-header__nav a:hover,
+.mlps-header__nav a.is-current {
+  color: #142C35;
+}
+
+.mlps-footer {
+  padding: 22px 28px;
+  text-align: center;
+  background: #ffffff;
+  border-top: 1px solid rgba(20, 44, 53, 0.12);
+  font-family: "Roboto", sans-serif;
+}
+
+.mlps-footer p {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.mlps-footer .mls-legal {
+  margin-top: 6px;
+}
+
+.mlps-footer .mls-legal a,
+.mlps-footer .mls-legal__btn {
+  font: inherit;
+  font-size: 13px;
+  color: rgba(20, 44, 53, 0.75);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .mlps-header { padding: 12px 16px; }
+  .mlps-footer { padding: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="mlps-header">
+  <a href="/" class="mlps-header__logo">Maple Leaf Soudure</a>
+  <nav class="mlps-header__nav">
+    <a href="/">Accueil</a>
+    <a href="/offres/">Analyses d'offres</a>
+    <a href="/soudeur-a-coup-sur/">Formation</a>
+    <a href="/generateur_portfolio_web.html" class="is-current">Générateur de portfolio</a>
+  </nav>
+</header>
+
+<div class="app">
+
+  <div class="editor">
+    <div class="brand">Mon Portfolio<span class="dot">.</span></div>
+    <div class="tagline">Remplis, ajoute tes photos, télécharge ton PDF.</div>
+
+    <div class="privacy">🔒 <b>Tes photos restent sur ton appareil.</b> Rien n'est envoyé sur internet — tout se passe dans ton navigateur.</div>
+
+    <div class="steps">
+      1. Choisis un modèle ci-dessous<br>
+      2. Remplis tes infos et ajoute tes pièces<br>
+      3. Clique « Télécharger le PDF »<br>
+      4. Choisis « Enregistrer en PDF » comme destination
+    </div>
+
+    <div class="group">
+      <div class="group-title">Modèle de PDF</div>
+      <div class="tpl-switch" id="tpl-switch"></div>
+    </div>
+
+    <div class="group">
+      <div class="group-title">Qui tu es</div>
+      <div class="photo-drop" id="avatar-drop">
+        <input type="file" id="avatar-input" accept="image/*">
+        <span id="avatar-label">📷 Photo de profil (optionnelle)</span>
+      </div>
+      <div class="row2">
+        <div><label>Prénom</label><input type="text" id="f-prenom" placeholder="Prénom"></div>
+        <div><label>Nom</label><input type="text" id="f-nom" placeholder="Nom"></div>
+      </div>
+      <label>Métier / titre</label>
+      <input type="text" id="f-titre" placeholder="ex : Soudeur-Chaudronnier Industriel">
+      <label>Ville</label>
+      <input type="text" id="f-ville" placeholder="ex : Lyon, France">
+      <div class="row2">
+        <div><label>Email</label><input type="email" id="f-email" placeholder="email@exemple.com"></div>
+        <div><label>Téléphone</label><input type="text" id="f-tel" placeholder="06 12 34 56 78"></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-title">Ton accroche</div>
+      <label>Quelques phrases sur toi (optionnel)</label>
+      <textarea id="f-bio" placeholder="ex : Soudeur qualifié TIG et MIG/MAG, je travaille l'acier et l'inox avec rigueur sur la préparation et le contrôle."></textarea>
+    </div>
+
+    <div class="group">
+      <div class="group-title">Procédés maîtrisés</div>
+      <div class="sug" id="proc-sug"></div>
+      <div class="tag-add">
+        <input type="text" id="proc-input" placeholder="Autre procédé…">
+        <button class="btn-tagadd" id="proc-add" title="Ajouter">+</button>
+      </div>
+      <div class="chips" id="proc-chips"></div>
+    </div>
+
+    <div class="group">
+      <div class="group-title">Matériaux / nuances</div>
+      <div class="sug" id="mat-sug"></div>
+      <div class="tag-add">
+        <input type="text" id="mat-input" placeholder="Autre nuance…">
+        <button class="btn-tagadd" id="mat-add" title="Ajouter">+</button>
+      </div>
+      <div class="chips" id="mat-chips"></div>
+    </div>
+
+    <div class="group">
+      <div class="group-title">Positions de soudage</div>
+      <div class="sug" id="pos-sug"></div>
+      <div class="tag-add">
+        <input type="text" id="pos-input" placeholder="Autre position…">
+        <button class="btn-tagadd" id="pos-add" title="Ajouter">+</button>
+      </div>
+      <div class="chips" id="pos-chips"></div>
+    </div>
+
+    <div class="group">
+      <div class="group-title">Tes réalisations</div>
+      <div id="real-container"></div>
+      <button class="btn btn-add" id="btn-add">+ Ajouter une réalisation</button>
+    </div>
+
+    <button class="btn btn-primary" id="btn-pdf">⬇ Télécharger le PDF</button>
+    <div class="hint">Dans la fenêtre qui s'ouvre, choisis<br><b>« Enregistrer en PDF »</b> comme destination / imprimante.</div>
+    <div class="saved-tag" id="saved-tag">✓ Enregistré automatiquement</div>
+    <button class="btn-reset" id="btn-reset">Tout effacer et recommencer</button>
+  </div>
+
+  <div class="preview-wrap">
+    <div class="sheet" id="sheet"></div>
+  </div>
+
+</div>
+
+<footer class="mlps-footer">
+  <p>&copy; 2026, Maple Leaf Soudure. Tous droits réservés.</p>
+  {% include footer-links.html %}
+</footer>
+
+<script>
+// ════════════════════════════════════════════════════════════
+//  CONTENU (ce que l'apprenant saisit) : séparé du MODÈLE d'affichage
+// ════════════════════════════════════════════════════════════
+const state = {
+  template:"galerie",
+  prenom:"", nom:"", titre:"", ville:"", email:"", tel:"", bio:"", avatar:"",
+  procedes:[], materiaux:[], positions:[],
+  reals:[]
+};
+let realId = 0;
+
+// ─── Helpers ───
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const has = v => v !== undefined && v !== null && String(v).trim() !== "";
+
+// ─── Sauvegarde automatique (silencieuse si indisponible) ───
+const STORE_KEY = "mapleleaf_portfolio_v1";
+let savedTagTimer = null;
+function flashSaved(){
+  const t = $("#saved-tag"); if(!t) return;
+  t.classList.add("show");
+  clearTimeout(savedTagTimer);
+  savedTagTimer = setTimeout(()=>t.classList.remove("show"), 1500);
+}
+function save(){
+  try{
+    localStorage.setItem(STORE_KEY, JSON.stringify(state));
+    flashSaved();
+  }catch(e){
+    // Quota dépassé (photos lourdes) : on retente en gardant le texte, sans les photos
+    try{
+      const light = JSON.parse(JSON.stringify(state));
+      light.avatar = "";
+      light.reals = light.reals.map(r => ({...r, photo:""}));
+      localStorage.setItem(STORE_KEY, JSON.stringify(light));
+    }catch(_){ /* stockage indisponible : on n'enregistre pas, l'outil marche quand même */ }
+  }
+}
+function load(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(!raw) return false;
+    const data = JSON.parse(raw);
+    Object.assign(state, data);
+    return true;
+  }catch(e){ return false; }
+}
+
+// ─── Redimensionnement photo à l'import (PDF léger + sauvegarde possible) ───
+function readImage(file, cb){
+  if(!file){ cb(""); return; }
+  const r = new FileReader();
+  r.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      try{
+        const MAX = 1400;
+        let {width:w, height:h} = img;
+        if(w > MAX || h > MAX){
+          if(w >= h){ h = Math.round(h*MAX/w); w = MAX; }
+          else { w = Math.round(w*MAX/h); h = MAX; }
+        }
+        const c = document.createElement("canvas");
+        c.width = w; c.height = h;
+        c.getContext("2d").drawImage(img, 0, 0, w, h);
+        cb(c.toDataURL("image/jpeg", 0.82));
+      }catch(_){ cb(e.target.result); } // si le canvas échoue, on garde l'original
+    };
+    img.onerror = () => cb(e.target.result);
+    img.src = e.target.result;
+  };
+  r.readAsDataURL(file);
+}
+
+// ─── Champs texte ───
+[["f-prenom","prenom"],["f-nom","nom"],["f-titre","titre"],["f-ville","ville"],
+ ["f-email","email"],["f-tel","tel"],["f-bio","bio"]].forEach(([id,key])=>{
+  $("#"+id).addEventListener("input", e => { state[key] = e.target.value; render(); save(); });
+});
+
+// ─── Photo de profil ───
+function setAvatarPreview(data){
+  const drop = $("#avatar-drop");
+  if(data){
+    drop.classList.add("has-img");
+    drop.innerHTML = '<input type="file" accept="image/*"><img src="'+data+'" alt="">';
+    drop.querySelector("input").addEventListener("change", handleAvatar);
+  }
+}
+function handleAvatar(e){
+  const drop = $("#avatar-drop");
+  drop.classList.add("busy");
+  readImage(e.target.files[0], data=>{
+    drop.classList.remove("busy");
+    state.avatar = data;
+    setAvatarPreview(data);
+    render(); save();
+  });
+}
+$("#avatar-input").addEventListener("change", handleAvatar);
+$("#avatar-drop").addEventListener("click", ()=>{ const i=$("#avatar-drop input"); if(i) i.click(); });
+
+// ─── Réalisations ───
+function addReal(data){
+  const id = realId++;
+  const obj = { id, photo:"", titre:"", meta:"", desc:"", ...(data||{}) };
+  obj.id = id;
+  state.reals.push(obj);
+
+  const box = document.createElement("div");
+  box.className = "real-edit";
+  box.dataset.id = id;
+  box.innerHTML = `
+    <button class="btn-remove" title="Supprimer">×</button>
+    <div class="num">RÉALISATION ${state.reals.length}</div>
+    <div class="photo-drop ${obj.photo?'has-img':''}" data-role="drop">
+      ${obj.photo ? '<img src="'+obj.photo+'" alt="">' : '<input type="file" accept="image/*"><span>📷 Ajouter une photo</span>'}
+    </div>
+    <input type="text" data-role="titre" placeholder="Titre (ex : Assemblage tubulaire inox)" value="${esc(obj.titre)}">
+    <input type="text" data-role="meta" placeholder="Procédé / matériau (ex : TIG 141 — Inox 316L)" value="${esc(obj.meta)}">
+    <textarea data-role="desc" placeholder="Contexte ou détails (optionnel)">${esc(obj.desc)}</textarea>`;
+  $("#real-container").appendChild(box);
+
+  const drop = box.querySelector('[data-role="drop"]');
+  function bindFile(){
+    const fi = drop.querySelector("input");
+    if(fi) fi.addEventListener("change", ev=>{
+      drop.classList.add("busy");
+      readImage(ev.target.files[0], d=>{
+        drop.classList.remove("busy");
+        obj.photo = d;
+        if(d){ drop.classList.add("has-img"); drop.innerHTML = '<img src="'+d+'" alt="">'; }
+        render(); save();
+      });
+    });
+  }
+  drop.addEventListener("click", ()=>{ const fi=drop.querySelector("input"); if(fi) fi.click(); });
+  bindFile();
+
+  box.querySelector('[data-role="titre"]').addEventListener("input", e=>{ obj.titre=e.target.value; render(); save(); });
+  box.querySelector('[data-role="meta"]').addEventListener("input", e=>{ obj.meta=e.target.value; render(); save(); });
+  box.querySelector('[data-role="desc"]').addEventListener("input", e=>{ obj.desc=e.target.value; render(); save(); });
+  box.querySelector(".btn-remove").addEventListener("click", ()=>{
+    state.reals = state.reals.filter(r=>r.id!==id);
+    box.remove(); renumber(); render(); save();
+  });
+}
+function renumber(){
+  $("#real-container").querySelectorAll(".real-edit .num").forEach((el,i)=> el.textContent = "RÉALISATION "+(i+1));
+}
+$("#btn-add").addEventListener("click", ()=>{ addReal(); render(); save(); });
+
+// ════════════════════════════════════════════════════════════
+//  ÉTIQUETTES TECHNIQUES (procédés, matériaux, positions)
+//  Boutons pré-remplis + ajout libre. Données = tableaux de texte.
+// ════════════════════════════════════════════════════════════
+const TAG_BLOCKS = {
+  procedes: { sug:"proc-sug", input:"proc-input", add:"proc-add", chips:"proc-chips", mono:true,
+    suggestions:["Électrode enrobée (111)","MIG (131)","MAG (135)","Fil fourré (136)","TIG (141)","Plasma (15)","Oxyacétylénique (311)"] },
+  materiaux: { sug:"mat-sug", input:"mat-input", add:"mat-add", chips:"mat-chips", mono:false,
+    suggestions:["Acier S235","Acier S355","Inox 304L","Inox 316L","Alu 5083","Alu 6060"] },
+  positions: { sug:"pos-sug", input:"pos-input", add:"pos-add", chips:"pos-chips", mono:true,
+    suggestions:["PA","PB","PC","PD","PE","PF","PG","H-L045"] },
+};
+function tagAdd(key, val){ val = String(val||"").trim(); if(val && !state[key].includes(val)) state[key].push(val); }
+function tagRemove(key, val){ state[key] = state[key].filter(x=>x!==val); }
+function refreshTagBlock(key){
+  const cfg = TAG_BLOCKS[key];
+  $("#"+cfg.sug).querySelectorAll("button").forEach(b=> b.classList.toggle("on", state[key].includes(b.dataset.val)));
+  const chips = $("#"+cfg.chips);
+  chips.innerHTML = state[key].map(v=>
+    `<span class="chip">${esc(v)}<button data-val="${esc(v)}" title="Retirer">×</button></span>`).join("");
+  chips.querySelectorAll("button").forEach(b=>
+    b.addEventListener("click", ()=>{ tagRemove(key, b.dataset.val); refreshTagBlock(key); render(); save(); }));
+}
+function setupTagBlock(key){
+  const cfg = TAG_BLOCKS[key];
+  $("#"+cfg.sug).innerHTML = cfg.suggestions.map(s=>`<button data-val="${esc(s)}">${esc(s)}</button>`).join("");
+  $("#"+cfg.sug).querySelectorAll("button").forEach(b=>
+    b.addEventListener("click", ()=>{
+      const v=b.dataset.val;
+      if(state[key].includes(v)) tagRemove(key,v); else tagAdd(key,v);
+      refreshTagBlock(key); render(); save();
+    }));
+  const inp = $("#"+cfg.input);
+  const addFn = ()=>{ tagAdd(key, inp.value); inp.value=""; refreshTagBlock(key); render(); save(); };
+  $("#"+cfg.add).addEventListener("click", addFn);
+  inp.addEventListener("keydown", e=>{ if(e.key==="Enter"){ e.preventDefault(); addFn(); } });
+  refreshTagBlock(key);
+}
+
+// ════════════════════════════════════════════════════════════
+//  MODÈLES (chaque modèle = une façon d'afficher le même contenu)
+//  Pour en ajouter un : ajoute une entrée ici + son CSS .sheet--xxx
+// ════════════════════════════════════════════════════════════
+function headHTML(p){
+  const name = (p.prenom+" "+p.nom).trim() || "Ton Nom";
+  let h = "";
+  if(has(p.avatar)) h += '<img class="sheet-avatar" src="'+p.avatar+'" alt="">';
+  h += '<div class="who"><div class="sheet-name">'+esc(name)+'</div>';
+  if(has(p.titre)) h += '<div class="sheet-role">'+esc(p.titre)+'</div>';
+  const c = [];
+  if(has(p.ville)) c.push("📍 "+esc(p.ville));
+  if(has(p.email)) c.push("✉ "+esc(p.email));
+  if(has(p.tel))   c.push("☎ "+esc(p.tel));
+  if(c.length) h += '<div class="sheet-contact">'+c.map(x=>'<span>'+x+'</span>').join("")+'</div>';
+  h += '</div>';
+  return h;
+}
+function bioHTML(p){ return has(p.bio) ? '<div class="sheet-bio">'+esc(p.bio)+'</div>' : ""; }
+function techHTML(p){
+  const rows = [];
+  if(p.procedes && p.procedes.length)  rows.push(["Procédés",  p.procedes,  true]);
+  if(p.materiaux && p.materiaux.length) rows.push(["Matériaux", p.materiaux, false]);
+  if(p.positions && p.positions.length) rows.push(["Positions", p.positions, true]);
+  if(!rows.length) return "";
+  const body = rows.map(([label,arr,mono])=>
+    '<div class="tech-row"><div class="tech-label">'+label+'</div><div class="tech-tags">'
+    + arr.map(v=>'<span class="t'+(mono?' proc':'')+'">'+esc(v)+'</span>').join("")
+    + '</div></div>').join("");
+  return '<div class="sheet-tech"><div class="sheet-section-title">Profil technique</div>'+body+'</div>';
+}
+function realsHTML(p){
+  if(p.reals.length === 0) return "";
+  const items = p.reals.map(r=>{
+    const img = has(r.photo) ? '<img class="ph" src="'+r.photo+'" alt="">' : '<div class="ph ph-empty">Photo</div>';
+    return '<div class="real-item">'+img
+      + '<div class="r-body">'
+      + '<div class="r-title">'+esc(r.titre || "Titre de la pièce")+'</div>'
+      + (has(r.meta) ? '<div class="r-meta">'+esc(r.meta)+'</div>' : '')
+      + (has(r.desc) ? '<div class="r-desc">'+esc(r.desc)+'</div>' : '')
+      + '</div></div>';
+  }).join("");
+  return '<div class="sheet-section-title">Réalisations</div><div class="real-list">'+items+'</div>';
+}
+const TEMPLATES = {
+  galerie: { label:"Galerie", render:p => headHTML(p)+bioHTML(p)+techHTML(p)+realsHTML(p) },
+  dossier: { label:"Dossier", render:p => headHTML(p)+bioHTML(p)+techHTML(p)+realsHTML(p) },
+};
+
+// ─── Sélecteur de modèle ───
+function buildSwitch(){
+  $("#tpl-switch").innerHTML = Object.entries(TEMPLATES).map(([k,t])=>
+    `<button class="tpl-btn ${k===state.template?'active':''}" data-tpl="${k}">${t.label}</button>`).join("");
+  $("#tpl-switch").querySelectorAll(".tpl-btn").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      state.template = b.dataset.tpl;
+      $("#tpl-switch").querySelectorAll(".tpl-btn").forEach(x=>x.classList.toggle("active", x===b));
+      render(); save();
+    });
+  });
+}
+
+// ─── Rendu ───
+function render(){
+  const sheet = $("#sheet");
+  sheet.className = "sheet sheet--"+state.template;
+  sheet.innerHTML = (TEMPLATES[state.template] || TEMPLATES.galerie).render(state);
+}
+
+// ─── Export PDF ───
+$("#btn-pdf").addEventListener("click", ()=>{
+  const name = (state.prenom+" "+state.nom).trim();
+  if(name) document.title = "Portfolio - "+name;
+  window.print();
+});
+
+// ─── Réinitialiser ───
+$("#btn-reset").addEventListener("click", ()=>{
+  if(!confirm("Effacer toutes tes infos et recommencer à zéro ?")) return;
+  try{ localStorage.removeItem(STORE_KEY); }catch(_){}
+  location.reload();
+});
+
+// ─── Démarrage ───
+function init(){
+  const restored = load();
+  // Garantir que les tableaux existent (anciennes sauvegardes)
+  ["procedes","materiaux","positions","reals"].forEach(k=>{ if(!Array.isArray(state[k])) state[k]=[]; });
+  buildSwitch();
+  // Champs texte
+  $("#f-prenom").value=state.prenom; $("#f-nom").value=state.nom;
+  $("#f-titre").value=state.titre; $("#f-ville").value=state.ville;
+  $("#f-email").value=state.email; $("#f-tel").value=state.tel; $("#f-bio").value=state.bio;
+  if(has(state.avatar)) setAvatarPreview(state.avatar);
+  // Étiquettes techniques
+  ["procedes","materiaux","positions"].forEach(setupTagBlock);
+  // Réalisations
+  const saved = state.reals.slice();
+  state.reals = [];
+  $("#real-container").innerHTML = "";
+  if(saved.length){ saved.forEach(r => addReal(r)); }
+  else { addReal(); }
+  render();
+}
+init();
+</script>
+
+{% include cookie-consent.html %}
+
+</body>
+</html>

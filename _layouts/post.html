@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{%- comment -%}
+  Gabarit d'article. En-tête attendu :
+
+  ---
+  title: "Titre de l'article"
+  description: "Résumé en une ou deux phrases (meta description)."
+  date: 2026-10-05
+  youtube_id: "XXXXXXXXXXX"          # facultatif : identifiant de la vidéo YouTube
+  video_duration: "18:42"            # facultatif : durée totale (fin du dernier chapitre)
+  video_upload_date: 2026-10-01      # facultatif : date de mise en ligne YouTube (sinon : date)
+  chapters:                          # facultatif : horodatages entre guillemets
+    - time: "00:00"
+      title: "Introduction"
+    - time: "02:15"
+      title: "Deuxième partie"
+  ---
+{%- endcomment -%}
+
+<article class="section about mls-page">
+  <div class="content content-box">
+    <div class="desc">
+
+      <p class="mls-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{% include date-fr.html date=page.date %}</time>
+      </p>
+
+      <h1 class="title_inner">{{ page.title }}</h1>
+
+      {% if page.youtube_id %}
+        {% include youtube.html id=page.youtube_id title=page.title chapters=page.chapters %}
+      {% endif %}
+
+      {{ content }}
+
+      <p style="margin-top:48px;"><a href="/blog/">Tous les articles</a></p>
+
+    </div>
+  </div>
+</article>
+
+{% if page.youtube_id %}{% include video-jsonld.html %}{% endif %}

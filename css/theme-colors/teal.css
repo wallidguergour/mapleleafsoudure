@@ -1,0 +1,115 @@
+/*
+ * Theme Teal : Soudeur à Coup Sûr
+ * Accent : #142C35 (marine sombre)
+ * Remplace orange.css (#FB8122) pour ce projet
+ */
+
+.cursor-follower {
+	background: #142C35;
+}
+
+a:hover {
+	color: #142C35;
+}
+
+.ink {
+	background: #142C35;
+}
+
+a.btn,
+.btn,
+.single-post-text input[type="submit"] {
+	color: #142C35;
+	border-color: #142C35;
+}
+
+button:hover {
+	border-bottom-color: #142C35;
+}
+
+.section.started .started-content .h-title strong {
+	color: #142C35;
+}
+
+.section.started .started-content .h-subtitle strong,
+.section.started .started-content .typed-subtitle strong {
+	color: #142C35;
+}
+
+.section.started .mouse_btn {
+	color: #142C35;
+}
+
+.info-list ul li strong {
+	color: #142C35;
+}
+
+.resume-items .resume-item.active .date {
+	color: #142C35;
+}
+
+.skills ul li .progress .percentage {
+	background: #142C35;
+}
+
+.skills.list ul li .name:before {
+	color: #142C35;
+}
+
+.skills.dotted ul li .progress .da span {
+	background: #142C35;
+}
+
+.service-items .service-item .icon {
+	color: #142C35;
+}
+
+.section.works .filters label.glitch-effect {
+	color: #142C35;
+}
+
+.started-content .date {
+	color: #142C35;
+	border-color: #142C35;
+}
+
+.single-post-text p a,
+.comment-text p a {
+	color: #142C35;
+}
+
+blockquote {
+	border-left-color: #142C35;
+}
+
+.single-post-text ul > li:before,
+.comment-text ul > li:before {
+	background: #142C35;
+}
+
+.post-text-bottom span.cat-links a {
+	color: #142C35;
+}
+
+.post-text-bottom .tags-links a,
+.post-text-bottom .tags-links span {
+	color: #142C35;
+	border-color: #142C35;
+}
+
+.content-sidebar .widget ul li a:hover {
+	color: #142C35;
+}
+
+.content-sidebar .tagcloud a {
+	color: #142C35;
+	border-color: #142C35;
+}
+
+.pricing-item .icon {
+	color: #142C35;
+}
+
+.pricing-item .feature-list ul li strong {
+	background: #142C35;
+}

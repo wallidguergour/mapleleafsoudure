@@ -1,0 +1,1188 @@
+/* ================================================
+   custom.css : Soudeur à Coup Sûr
+   Overrides du template Cvio pour thème clair
+   Fond : #E7E6E6 · Accent : #142C35 · Texte : #000 / #222
+================================================ */
+
+/* ---- Variables ---- */
+:root {
+  --teal:         #142C35;
+  --teal-dim:     rgba(20, 44, 53, 0.12);
+  --teal-border:  rgba(20, 44, 53, 0.25);
+  --bg:           #E7E6E6;
+  --bg-box:       #ffffff;
+  --text:         #333333;
+  --text-muted:   rgba(0, 0, 0, 0.45);
+  --text-dark:    #000000;
+}
+
+/* ================================================
+   BASE : inversion fond sombre → clair
+================================================ */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header fixe */
+.header.fixed {
+  background: var(--bg);
+  box-shadow: 0 1px 0 var(--teal-dim);
+}
+
+.header.active {
+  background: var(--bg);
+}
+
+/* Bouton hamburger : lignes sombres */
+.header .menu-btn:before,
+.header .menu-btn:after,
+.header .menu-btn span {
+  background: var(--teal);
+}
+
+/* Logo texte header */
+.header .logo a,
+.header .logo strong {
+  color: var(--teal);
+  opacity: 1;
+}
+
+/* Navigation */
+.header .top-menu ul li a {
+  color: var(--teal);
+  opacity: 0.65;
+}
+
+.header .top-menu ul li:hover > a,
+.header .top-menu ul li.current-menu-item > a {
+  opacity: 1;
+}
+
+/* Sous-menu */
+.header .top-menu-nav .sub-menu,
+.header .top-menu-nav .children {
+  background: var(--bg-box);
+}
+
+.header .top-menu-nav .sub-menu:before,
+.header .top-menu-nav .children:before {
+  border-bottom-color: var(--bg-box);
+}
+
+.header .top-menu-nav .sub-menu li,
+.header .top-menu-nav .children li {
+  border-bottom-color: var(--teal-dim);
+}
+
+.header .top-menu-nav .sub-menu li a,
+.header .top-menu-nav .children li a {
+  color: var(--teal);
+}
+
+/* ================================================
+   SECTIONS
+================================================ */
+/* Content-box : fond blanc sur fond gris */
+.section .content-box {
+  background: var(--bg-box);
+  border-color: var(--teal-dim);
+}
+
+/* Titres de sections */
+.section .title .title_inner,
+.section .desc h1.title_inner,
+.section .desc h2.title_inner,
+.section .desc h3.title_inner {
+  color: var(--text-dark);
+}
+
+/* Texte description */
+.section .desc p,
+.section .desc li {
+  color: var(--text);
+}
+
+.section .desc strong {
+  color: var(--text-dark);
+}
+
+/* Blockquote */
+blockquote {
+  color: var(--teal);
+  border-left-color: var(--teal);
+}
+
+/* Listes à puce */
+.section .desc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.section .desc ul li {
+  padding: 10px 0 10px 24px;
+  border-bottom: 1px solid var(--teal-dim);
+  position: relative;
+}
+
+.section .desc ul li:last-child {
+  border-bottom: none;
+}
+
+.section .desc ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* Info-list (section crédibilité) */
+.info-list ul li {
+  color: var(--text);
+  border-bottom-color: var(--teal-dim);
+}
+
+.info-list ul li strong {
+  color: var(--teal);
+}
+
+/* Service items (bonus) */
+.service-items .service-item .icon {
+  color: var(--teal);
+}
+
+.service-items .service-item .name {
+  color: var(--text-dark);
+}
+
+.service-items .service-item .text {
+  color: var(--text);
+}
+
+/* ================================================
+   HERO : section started
+================================================ */
+
+/* Voile noir ~50% : assombrit la photo, SVG par-dessus ressort nettement */
+.section.started.cvio-hero-svg .video-bg-mask {
+  background: rgba(0, 0, 0, 0.50);
+}
+
+/* SVG centré : laisse le layout du template gérer la position */
+.cvio-hero-content {
+  text-align: center;
+}
+
+.cvio-hero-visual {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 820px;
+  height: auto;
+}
+
+.cvio-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Flèche scroll : blanche sur fond photo */
+.section.started.cvio-hero-svg .mouse_btn {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+/* Raccord fluide hero → section VSL */
+.section.started.cvio-hero-svg + .section.about {
+  margin-top: 0;
+}
+
+/* ================================================
+   BOUTONS
+================================================ */
+a.btn,
+.btn {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+a.btn:hover,
+.btn:hover {
+  background: var(--teal);
+  color: #fff;
+}
+
+/* Boutons d'achat Gumroad : fond plein */
+a.btn[data-gumroad-overlay-checkout],
+.section.cvio-dark a.btn[data-gumroad-overlay-checkout] {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+  border-radius: 4px;
+}
+
+a.btn[data-gumroad-overlay-checkout]:hover,
+.section.cvio-dark a.btn[data-gumroad-overlay-checkout]:hover {
+  background: #1c3f50;
+  border-color: #1c3f50;
+  color: #fff;
+}
+
+a.btn[data-gumroad-overlay-checkout]:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 4px;
+}
+
+.section.cvio-dark a.btn[data-gumroad-overlay-checkout]:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 4px;
+}
+
+/* ================================================
+   FOOTER
+================================================ */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--teal-dim);
+}
+
+.footer .copy p {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0;
+  padding: 24px 0;
+}
+
+/* ================================================
+   LINES décoratives
+================================================ */
+/* Ligne visible : blanc → teal semi-transparent */
+.lines .line-col:before {
+  background: rgba(20, 44, 53, 0.1) !important;
+}
+
+/* Rideau d'animation d'entrée : noir → fond clair */
+.lines .line-col:after {
+  background: #E7E6E6 !important;
+}
+
+/* ================================================
+   PRELOADER
+================================================ */
+.preloader {
+  background: var(--bg);
+}
+
+.preloader .spinner .double-bounce1,
+.preloader .spinner .double-bounce2 {
+  background: var(--teal);
+}
+
+/* ================================================
+   CURSOR
+================================================ */
+.cursor-follower {
+  background: var(--teal);
+  opacity: 0.2;
+}
+
+/* ================================================
+   COMPOSANTS SALES : stats, badges, prix, FAQ, form
+================================================ */
+
+/* --- Badges programme --- */
+.cvio-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background: var(--teal);
+  color: #fff;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+.cvio-badge--pending {
+  background: rgba(20, 44, 53, 0.12);
+  color: var(--teal);
+}
+
+/* --- Stats chiffres programme --- */
+.cvio-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--teal-dim);
+  border-bottom: 1px solid var(--teal-dim);
+}
+
+.cvio-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.cvio-stat__val {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--teal);
+  line-height: 1;
+}
+
+.cvio-stat__lbl {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* --- Prix CTA final --- */
+.cvio-price {
+  margin: 32px 0;
+  text-align: center;
+}
+
+.cvio-price__amount {
+  display: block;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--teal);
+  line-height: 1;
+}
+
+.cvio-price__label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.cvio-price__future {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+.cvio-price__future strong {
+  color: var(--text-dark);
+}
+
+/* Prix barré : version avec remise */
+.cvio-price__original {
+  display: block;
+  font-size: 22px;
+  text-decoration: line-through;
+  opacity: 0.45;
+  margin-bottom: -4px;
+}
+
+/* Grand bouton CTA : height:auto obligatoire (border-box + height:44px du template) */
+.cvio-btn-cta {
+  font-size: 16px;
+  height: auto;
+  line-height: 1.5;
+  padding: 14px 0;
+}
+
+.cvio-btn-cta .lnk {
+  padding: 0 40px;
+}
+
+/* --- FAQ accordéon --- */
+.cvio-faq {
+  margin-top: 24px;
+}
+
+.cvio-faq__item {
+  border-bottom: 1px solid var(--teal-dim);
+}
+
+.cvio-faq__item:first-child {
+  border-top: 1px solid var(--teal-dim);
+}
+
+.cvio-faq__q {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 20px 40px 20px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  position: relative;
+  line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
+  transition: color 0.2s;
+}
+
+.cvio-faq__q:hover {
+  color: var(--teal);
+}
+
+.cvio-faq__q::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--teal);
+  transition: transform 0.25s;
+  line-height: 1;
+}
+
+.cvio-faq__item.open .cvio-faq__q::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.cvio-faq__a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0;
+}
+
+.cvio-faq__a p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text);
+  margin: 0;
+}
+
+.cvio-faq__item.open .cvio-faq__a {
+  max-height: 400px;
+  padding-bottom: 20px;
+}
+
+/* --- Formulaire opt-in --- */
+.cvio-optin-form {
+  display: flex;
+  gap: 0;
+  max-width: 520px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.cvio-optin-form input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 18px;
+  border: 1px solid var(--teal-border);
+  border-right: none;
+  background: #fff;
+  color: var(--text-dark);
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.cvio-optin-form input[type="email"]:focus {
+  border-color: var(--teal);
+}
+
+.cvio-optin-form input[type="email"]::placeholder {
+  color: var(--text-muted);
+}
+
+.cvio-optin-form button[type="submit"] {
+  padding: 14px 24px;
+  background: var(--teal);
+  border: 1px solid var(--teal);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.cvio-optin-form button[type="submit"]:hover {
+  background: #1e3f4d;
+}
+
+/* ================================================
+   BACK TO TOP
+================================================ */
+#backToTop {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background: rgba(20, 44, 53, 0.12);
+  border: 1px solid var(--teal-border);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, background 0.3s;
+  z-index: 999;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#backToTop:hover {
+  background: rgba(20, 44, 53, 0.22);
+}
+
+#backToTop svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ================================================
+   CALENDLY FLOAT
+================================================ */
+.cvio-calendly-float {
+  position: fixed;
+  bottom: 150px;
+  right: 28px;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 22px;
+  background: var(--teal);
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(20, 44, 53, 0.25);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.cvio-calendly-float:hover {
+  background: #1e3f4d;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ================================================
+   GALERIE DE PIÈCES (landing)
+================================================ */
+.cvio-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.cvio-gallery__item {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--teal-dim);
+  border: 1px solid var(--teal-border);
+}
+
+.cvio-gallery__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================================================
+   CARDS OFFRES (landing)
+================================================ */
+.cvio-cards {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+
+.cvio-card {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-box);
+  border: 1px solid var(--teal-dim);
+  padding: 32px;
+}
+
+.cvio-card h3.title_inner {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.cvio-card p {
+  flex-grow: 1;
+}
+
+.cvio-card .btn {
+  align-self: flex-start;
+  margin-top: 16px;
+}
+
+/* ================================================
+   TABLEAU COMPARATIF + CALLOUT (pages /offres/)
+================================================ */
+.cvio-compare-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+
+.cvio-compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.cvio-compare th,
+.cvio-compare td {
+  padding: 12px 16px;
+  border: 1px solid var(--teal-dim);
+  text-align: left;
+  vertical-align: top;
+}
+
+.cvio-compare thead th {
+  background: var(--teal);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cvio-compare tbody th {
+  background: var(--teal-dim);
+  color: var(--text-dark);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cvio-compare tbody td {
+  color: var(--text);
+}
+
+/* Encadré Source/Date + mentions de prudence */
+.cvio-callout {
+  background: var(--teal-dim);
+  border-left: 4px solid var(--teal);
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.cvio-callout p {
+  margin: 0;
+}
+
+.cvio-callout p + p {
+  margin-top: 8px;
+}
+
+/* ================================================
+   UTILITAIRES
+================================================ */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ================================================
+   SECTIONS SOMBRES : fond #142C35, texte clair
+   Appliqué sur : #section-cout, #section-cta
+================================================ */
+.section.cvio-dark {
+  background: var(--teal);
+}
+
+.section.cvio-dark .content-box {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+.section.cvio-dark .title .title_inner {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.section.cvio-dark .desc h2.title_inner,
+.section.cvio-dark .desc h3.title_inner {
+  color: #ffffff;
+}
+
+.section.cvio-dark .desc p,
+.section.cvio-dark .desc li {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.section.cvio-dark .desc strong {
+  color: #ffffff;
+}
+
+.section.cvio-dark .desc em {
+  color: rgba(255, 255, 255, 0.60);
+}
+
+.section.cvio-dark blockquote {
+  color: #ffffff;
+  border-left-color: rgba(255, 255, 255, 0.45);
+}
+
+.section.cvio-dark .desc ul li {
+  border-bottom-color: rgba(255, 255, 255, 0.10);
+}
+
+.section.cvio-dark .desc ul li::before {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+.section.cvio-dark hr {
+  border-top-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Prix */
+.section.cvio-dark .cvio-price__amount {
+  color: #ffffff;
+}
+
+.section.cvio-dark .cvio-price__label {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+.section.cvio-dark .cvio-price__future {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.section.cvio-dark .cvio-price__future strong {
+  color: #ffffff;
+}
+
+/* Badges */
+.section.cvio-dark .cvio-badge {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Stats */
+.section.cvio-dark .cvio-stats {
+  border-top-color: rgba(255, 255, 255, 0.15);
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+.section.cvio-dark .cvio-stat__val {
+  color: #ffffff;
+}
+
+.section.cvio-dark .cvio-stat__lbl {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+/* Callout */
+.section.cvio-dark .cvio-callout {
+  background: rgba(255, 255, 255, 0.06);
+  border-left-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Boutons inversés sur fond sombre */
+.section.cvio-dark a.btn,
+.section.cvio-dark .btn {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.section.cvio-dark a.btn:hover,
+.section.cvio-dark .btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* Formulaire opt-in sur fond sombre */
+.section.cvio-dark .cvio-optin-form input[type="email"] {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+.section.cvio-dark .cvio-optin-form input[type="email"]::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.section.cvio-dark .cvio-optin-form input[type="email"]:focus {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.section.cvio-dark .cvio-optin-form button[type="submit"] {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+}
+
+.section.cvio-dark .cvio-optin-form button[type="submit"]:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ================================================
+   RESPONSIVE
+================================================ */
+@media (max-width: 600px) {
+  .cvio-stats {
+    gap: 20px;
+  }
+
+  .cvio-price__amount {
+    font-size: 56px;
+  }
+
+  .cvio-optin-form {
+    flex-direction: column;
+  }
+
+  .cvio-optin-form input[type="email"] {
+    border-right: 1px solid var(--teal-border);
+    border-bottom: none;
+    min-width: 100%;
+  }
+
+  .cvio-optin-form button[type="submit"] {
+    width: 100%;
+  }
+
+  .cvio-calendly-float {
+    bottom: 140px;
+    right: 16px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .cvio-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .cvio-cards {
+    flex-direction: column;
+  }
+
+  .cvio-compare {
+    font-size: 13px;
+  }
+
+  .cvio-compare th,
+  .cvio-compare td {
+    padding: 8px 10px;
+  }
+}
+
+/* ================================================
+   PIED DE PAGE : liens légaux visibles partout
+   (le pied de page du thème était fixe et masqué sur mobile)
+================================================ */
+.footer,
+.home .footer {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  height: auto;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.footer .copy,
+.home .footer .copy {
+  position: static;
+  display: block;
+  text-align: center;
+}
+
+.footer .copy p {
+  padding: 0;
+}
+
+.mls-legal {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 2;
+  color: var(--text-muted);
+}
+
+.mls-legal a,
+.mls-legal__btn {
+  font: inherit;
+  color: var(--teal);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mls-legal__btn {
+  display: inline;
+  width: auto;
+  height: auto;
+  margin: 0;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+.mls-legal a:hover,
+.mls-legal__btn:hover {
+  opacity: 0.7;
+}
+
+/* ================================================
+   BANDEAU DE CONSENTEMENT : couleurs du site
+================================================ */
+#cc-main {
+  --cc-btn-primary-bg: var(--teal);
+  --cc-btn-primary-border-color: var(--teal);
+  --cc-btn-primary-hover-bg: #0b1a20;
+  --cc-btn-primary-hover-border-color: #0b1a20;
+  --cc-btn-secondary-bg: var(--teal);
+  --cc-btn-secondary-color: #ffffff;
+  --cc-btn-secondary-border-color: var(--teal);
+  --cc-btn-secondary-hover-bg: #0b1a20;
+  --cc-btn-secondary-hover-color: #ffffff;
+  --cc-btn-secondary-hover-border-color: #0b1a20;
+  --cc-toggle-on-bg: var(--teal);
+  --cc-font-family: "Roboto", sans-serif;
+}
+
+/* Le thème (basic.css) impose un style à tous les boutons et champs : on le neutralise dans le bandeau */
+#cc-main button,
+#cc-main input {
+  height: auto;
+  margin-bottom: 0;
+  border-bottom: 0;
+  text-align: center;
+  font-family: var(--cc-font-family);
+}
+
+#cc-main .cm__btn,
+#cc-main .pm__btn {
+  background: var(--cc-btn-primary-bg) !important;
+}
+
+#cc-main .cm__btn--secondary,
+#cc-main .pm__btn--secondary {
+  background: var(--cc-btn-secondary-bg) !important;
+}
+
+#cc-main .cm__btn:hover,
+#cc-main .pm__btn:hover {
+  background: var(--cc-btn-primary-hover-bg) !important;
+}
+
+#cc-main .pm__close-btn {
+  background: var(--cc-btn-secondary-bg) !important;
+}
+
+#cc-main .pm__section-title {
+  background: var(--cc-cookie-category-block-bg) !important;
+  text-align: left;
+}
+
+#cc-main .pm__section--toggle .pm__section-title:hover {
+  background: var(--cc-cookie-category-block-hover-bg) !important;
+}
+
+/* ================================================
+   PAGES DE CONTENU (blog, pages légales)
+================================================ */
+.mls-page h1,
+.mls-page h2,
+.mls-page h3 {
+  color: var(--text-dark);
+}
+
+.mls-page .desc a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mls-page h1.title_inner {
+  font-size: 32px;
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+
+.mls-page h2 {
+  font-size: 22px;
+  margin: 40px 0 12px;
+}
+
+.mls-page h3 {
+  font-size: 18px;
+  margin: 28px 0 10px;
+}
+
+.mls-meta {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.mls-todo {
+  background: rgba(255, 196, 0, 0.25);
+  padding: 0 4px;
+}
+
+.mls-post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mls-post-list li {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--teal-dim);
+}
+
+.mls-post-list h2 {
+  margin: 4px 0 8px;
+}
+
+.mls-post-list h2 a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+/* ================================================
+   VIDÉO YOUTUBE EN CHARGEMENT DIFFÉRÉ
+================================================ */
+.mls-video {
+  margin: 32px 0;
+}
+
+.mls-video__frame {
+  position: relative;
+  padding-top: 56.25%;
+  background: #000;
+  overflow: hidden;
+}
+
+.mls-video__frame iframe,
+.mls-video__play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mls-video__play {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: #000;
+}
+
+.mls-video__play img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.mls-video__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 50px;
+  margin: -25px 0 0 -36px;
+  border-radius: 12px;
+  background: var(--teal);
+}
+
+.mls-video__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -6px;
+  border-style: solid;
+  border-width: 10px 0 10px 17px;
+  border-color: transparent transparent transparent #ffffff;
+}
+
+.mls-video__play:hover .mls-video__icon,
+.mls-video__play:focus-visible .mls-video__icon {
+  background: #c00;
+}
+
+.mls-video__notice {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.mls-chapters {
+  margin-top: 16px;
+}
+
+.mls-chapters ol {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.mls-chapters li {
+  margin: 0;
+}
+
+.mls-chapters button {
+  display: block;
+  height: auto;
+  margin: 0;
+  font: inherit;
+  text-align: left;
+  width: 100%;
+  padding: 6px 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--teal-dim);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.mls-chapters button:hover {
+  color: var(--teal);
+}
+
+.mls-chapters time {
+  display: inline-block;
+  min-width: 64px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--teal);
+}

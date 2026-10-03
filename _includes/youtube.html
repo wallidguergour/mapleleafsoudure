@@ -1,0 +1,28 @@
+{%- comment -%}
+  Vidéo YouTube en chargement différé (youtube-nocookie.com).
+  Rien n'est chargé depuis YouTube avant le clic, sauf la miniature (i.ytimg.com).
+  Paramètres : id, title, chapters (liste de { time, title }).
+{%- endcomment -%}
+<figure class="mls-video">
+  <div class="mls-video__frame" data-youtube-id="{{ include.id }}" data-youtube-title="{{ include.title | escape }}">
+    <button type="button" class="mls-video__play" aria-label="Lire la vidéo : {{ include.title | escape }}">
+      <img src="https://i.ytimg.com/vi/{{ include.id }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+      <span class="mls-video__icon" aria-hidden="true"></span>
+    </button>
+  </div>
+  <figcaption class="mls-video__notice">
+    La vidéo est hébergée par YouTube (mode confidentialité renforcée) et ne se charge qu'au clic.
+  </figcaption>
+</figure>
+
+{%- if include.chapters and include.chapters.size > 0 %}
+<nav class="mls-chapters" aria-label="Chapitres de la vidéo">
+  <p class="mls-meta">Chapitres</p>
+  <ol>
+    {%- for chapitre in include.chapters %}
+    {%- include time-to-seconds.html time=chapitre.time %}
+    <li><button type="button" data-start="{{ mls_seconds }}"><time datetime="PT{{ mls_seconds }}S">{{ mls_label }}</time> {{ chapitre.title | escape }}</button></li>
+    {%- endfor %}
+  </ol>
+</nav>
+{%- endif %}

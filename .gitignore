@@ -1,0 +1,21 @@
+# Build
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+vendor/
+Gemfile.lock
+
+# Système / éditeurs
+.DS_Store
+.vs/
+.claude/
+
+# Docs internes (jamais publiés ni versionnés)
+ANALYTICS.md
+AUDIT-CONVERSION.md
+AVANCEMENT.md
+COPYWRITING-PLAYBOOK.md
+copy-soudeur-a-coup-sur-v2.md
+cahier-des-charges-mapleleaf-press.md
+REFERENCE-ancienne-page.html
