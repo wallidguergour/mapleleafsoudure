@@ -19,3 +19,6 @@ COPYWRITING-PLAYBOOK.md
 copy-soudeur-a-coup-sur-v2.md
 cahier-des-charges-mapleleaf-press.md
 REFERENCE-ancienne-page.html
+
+# Noms à rechercher par _outils/verifier-nom.sh (jamais versionné)
+.noms-interdits

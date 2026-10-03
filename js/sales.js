@@ -1,18 +1,5 @@
 /* sales.js : Soudeur à Coup Sûr */
 
-/* ---- Shims pour plugins Cvio non chargés (évite TypeErrors dans scripts.js) ---- */
-if (typeof jQuery !== 'undefined') {
-  if (!jQuery.fn.magnificPopup) {
-    jQuery.fn.magnificPopup = function () { return this; };
-  }
-  if (!jQuery.fn.imagesLoaded) {
-    jQuery.fn.imagesLoaded = function (cb) { if (cb) cb(); return this; };
-  }
-  if (!jQuery.fn.isotope) {
-    jQuery.fn.isotope = function () { return this; };
-  }
-}
-
 (function ($) {
   'use strict';
 
