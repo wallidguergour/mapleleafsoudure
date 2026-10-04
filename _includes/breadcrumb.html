@@ -1,0 +1,47 @@
+{%- comment -%}
+  Fil d'Ariane + JSON-LD BreadcrumbList.
+  include.pilier : slug du pilier (_data/piliers.yml)
+  include.titre  : titre de la page courante si c'est un article (sinon : le pilier est la page courante)
+{%- endcomment -%}
+{%- assign mls_pilier = site.data.piliers | where: "slug", include.pilier | first -%}
+{%- if mls_pilier -%}
+<nav class="mls-breadcrumb" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    {%- if include.titre %}
+    <li><a href="/{{ mls_pilier.slug }}/">{{ mls_pilier.titre }}</a></li>
+    <li aria-current="page">{{ include.titre }}</li>
+    {%- else %}
+    <li aria-current="page">{{ mls_pilier.titre }}</li>
+    {%- endif %}
+  </ol>
+</nav>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "{{ site.url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ mls_pilier.titre | jsonify }},
+      "item": "{{ site.url }}/{{ mls_pilier.slug }}/"
+    }
+    {%- if include.titre %},
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ include.titre | jsonify }},
+      "item": "{{ site.url }}{{ page.url }}"
+    }
+    {%- endif %}
+  ]
+}
+</script>
+{%- endif -%}

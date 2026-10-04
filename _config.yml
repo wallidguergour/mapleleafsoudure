@@ -4,11 +4,19 @@
 title: "Maple Leaf Soudure"
 tagline: "Carrière, qualification et mobilité internationale pour soudeurs"
 description: "Maple Leaf accompagne les soudeurs qui veulent piloter leur carrière, viser les entreprises qui paient et préparer leur mobilité internationale."
-author: "Maple Leaf Soudure"
+author:
+  name: "Maple Leaf Soudure"
+  type: Organization
 url: "https://mapleleafsoudure.com"
 baseurl: ""
 lang: "fr"
 locale: "fr_FR"
+
+# Organisation (JSON-LD Organization, _includes/organization-jsonld.html)
+logo: /images/logo/maple-leaf-soudure.png
+same_as:
+  - https://www.youtube.com/@MapleLeafSoudure
+  # LinkedIn : à ajouter ici dès que l'URL de la page existe
 
 # Tag Manager (chargé uniquement après acceptation des statistiques)
 gtm_id: "GTM-KXXWBXJK"
@@ -25,6 +33,7 @@ timezone: Europe/Paris
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 # jekyll-seo-tag : données de l'organisation
 social:
@@ -43,7 +52,8 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      permalink: /blog/:title/
+      # Une seule catégorie par article, parmi les 4 piliers (_data/piliers.yml)
+      permalink: /:categories/:title/
 
 # Exclure du build (docs internes : jamais publiés)
 exclude:

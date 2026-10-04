@@ -1,0 +1,21 @@
+---
+layout: default
+title: "Outils"
+description: "Les outils Maple Leaf Soudure pour les soudeurs et les ateliers : générateur de portfolio, Harword."
+permalink: /outils/
+---
+<div class="section about mls-page">
+  <div class="content content-box">
+    <div class="desc">
+
+      <h1 class="title_inner">Outils</h1>
+
+      <div class="cvio-cards">
+        {% for outil in site.data.outils %}
+          {% include carte-outil.html outil=outil %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>

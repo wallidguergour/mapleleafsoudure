@@ -1,0 +1,135 @@
+---
+layout: default
+title: "Harword"
+description: "Harword, l'IA pour la soudure : recherche documentaire, aide à la rédaction de WPS et suivi des compétences des soudeurs."
+permalink: /outils/harword/
+# ============================================================
+# PAGE EN COURS : tant qu'elle contient des [[ À COMPLÉTER ]], elle reste hors index.
+# Une fois terminée, RETIRER les trois lignes suivantes (robots, sitemap, llms).
+robots: "noindex, follow"
+sitemap: false
+llms: false
+# ============================================================
+# Liens : ne renseigner que des URL qui existent (sinon l'emplacement reste vide).
+depot_github: ""        # URL du dépôt GitHub (version open source)
+documentation: ""       # URL de la documentation d'installation
+# FAQ : la section FAQ et son JSON-LD FAQPage s'affichent seulement quand cette liste est remplie.
+#   - question: "..."
+#     reponse: "..."
+faq: []
+---
+<!--
+  JSON-LD SoftwareApplication : à activer (sortir du commentaire) seulement avec des valeurs confirmées.
+  Aucun prix : ne pas ajouter « offers » sans prix réel.
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Harword",
+    "applicationCategory": "[[ À CONFIRMER ]]",
+    "operatingSystem": "[[ À CONFIRMER ]]",
+    "url": "https://mapleleafsoudure.com/outils/harword/",
+    "publisher": { "@id": "https://mapleleafsoudure.com/#organization" }
+  }
+  </script>
+-->
+
+<div class="section about mls-page">
+  <div class="content content-box">
+    <div class="desc">
+
+      <p class="mls-meta"><a href="/outils/">Outils</a></p>
+
+      <h1 class="title_inner">Harword</h1>
+
+      <h2>Présentation</h2>
+      <p><span class="mls-todo">[[ À COMPLÉTER : à quoi sert l'outil ]]</span></p>
+      <p>Pour qui : responsables qualité, ingénieurs soudage, chefs d'atelier.</p>
+      <p><span class="mls-todo">[[ À COMPLÉTER : précisions sur le public ]]</span></p>
+
+      <h2>Fonctionnalités</h2>
+      <div class="cvio-cards">
+        <div class="cvio-card">
+          <h3 class="title_inner">Recherche documentaire</h3>
+          <p><span class="mls-todo">[[ À COMPLÉTER ]]</span></p>
+        </div>
+        <div class="cvio-card">
+          <h3 class="title_inner">Aide à la rédaction de WPS</h3>
+          <p><span class="mls-todo">[[ À COMPLÉTER ]]</span></p>
+        </div>
+        <div class="cvio-card">
+          <h3 class="title_inner">Suivi des compétences des soudeurs</h3>
+          <p><span class="mls-todo">[[ À COMPLÉTER ]]</span></p>
+        </div>
+      </div>
+
+      <h2>Deux façons d'utiliser Harword</h2>
+      <div class="cvio-cards mls-options">
+        <div class="cvio-card">
+          <h3 class="title_inner">Open source</h3>
+          <p>Installation en autonomie. <span class="mls-todo">[[ À COMPLÉTER ]]</span></p>
+          <div class="mls-card-actions">
+            {%- if page.depot_github != "" %}
+            <a href="{{ page.depot_github }}" class="btn hover-animated" target="_blank" rel="noopener">
+              <span class="circle"></span>
+              <span class="lnk">Voir le dépôt GitHub</span>
+            </a>
+            {%- else %}
+            <span class="mls-todo">[[ À COMPLÉTER : URL du dépôt GitHub ]]</span>
+            {%- endif %}
+            {%- if page.documentation != "" %}
+            <a href="{{ page.documentation }}" class="mls-lien-externe" target="_blank" rel="noopener">Documentation</a>
+            {%- else %}
+            <span class="mls-todo">[[ À COMPLÉTER : URL de la documentation ]]</span>
+            {%- endif %}
+          </div>
+        </div>
+        <div class="cvio-card">
+          <h3 class="title_inner">Installation et accompagnement</h3>
+          <p>Mise en place sur site, adaptation, formation des équipes. <span class="mls-todo">[[ À COMPLÉTER ]]</span></p>
+          <div class="mls-card-actions">
+            <a href="https://calendly.com/mapleleafsoudure/1h" class="btn hover-animated" target="_blank" rel="noopener">
+              <span class="circle"></span>
+              <span class="lnk">Demander un devis</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mls-avertissement" role="note">
+        <p><strong>Avertissement</strong></p>
+        <p><span class="mls-todo">[[ À COMPLÉTER : les documents générés sont une aide et doivent être validés par une personne qualifiée ; l'outil n'inclut pas le texte des normes, chaque entreprise utilise ses propres normes sous licence ]]</span></p>
+      </div>
+
+      <h2>Questions fréquentes</h2>
+      {% if page.faq and page.faq.size > 0 %}
+      <div class="cvio-faq">
+        {% for item in page.faq %}
+        <div class="cvio-faq__item">
+          <button class="cvio-faq__q" type="button">{{ item.question }}</button>
+          <div class="cvio-faq__a"><p>{{ item.reponse }}</p></div>
+        </div>
+        {% endfor %}
+      </div>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {%- for item in page.faq %}
+          {
+            "@type": "Question",
+            "name": {{ item.question | jsonify }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ item.reponse | jsonify }} }
+          }{% unless forloop.last %},{% endunless %}
+          {%- endfor %}
+        ]
+      }
+      </script>
+      {% else %}
+      <p><span class="mls-todo">[[ À COMPLÉTER : questions et réponses, à saisir dans le champ « faq » de l'en-tête ]]</span></p>
+      {% endif %}
+
+    </div>
+  </div>
+</div>

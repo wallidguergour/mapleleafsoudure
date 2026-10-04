@@ -1,3 +1,14 @@
+<nav class="mls-legal mls-legal--sections" aria-label="Sections du site">
+  {%- for pilier in site.data.piliers %}
+  <a href="/{{ pilier.slug }}/">{{ pilier.titre }}</a>
+  <span aria-hidden="true">·</span>
+  {%- endfor %}
+  <a href="/formations/">Nos formations</a>
+  <span aria-hidden="true">·</span>
+  <a href="/outils/">Outils</a>
+  <span aria-hidden="true">·</span>
+  <a href="/a-propos/">À propos</a>
+</nav>
 <p class="mls-legal">
   <a href="/mentions-legales/">Mentions légales</a>
   <span aria-hidden="true">·</span>

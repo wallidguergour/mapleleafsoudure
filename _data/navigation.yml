@@ -1,0 +1,13 @@
+# Menu principal (toutes les pages sauf la page de vente, qui garde son menu réduit)
+- titre: "Se former"
+  url: /formation-soudure/
+- titre: "Carrière"
+  url: /carriere-soudeur/
+- titre: "Entreprendre"
+  url: /entreprendre-soudure/
+- titre: "IA et soudure"
+  url: /ia-soudure/
+- titre: "Outils"
+  url: /outils/
+- titre: "Nos formations"
+  url: /formations/

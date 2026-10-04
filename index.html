@@ -8,6 +8,8 @@
 
 {% include consent-head.html %}
 
+{% include organization-jsonld.html %}
+
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Maple Leaf Soudure">
@@ -38,13 +40,16 @@
   <meta name="twitter:description" content="Maple Leaf accompagne les soudeurs qui veulent piloter leur carrière, viser les entreprises qui paient et préparer leur mobilité internationale.">
   <meta name="twitter:image" content="https://mapleleafsoudure.com/images/bg/hero.webp">
 
-  <!-- JSON-LD : Organization -->
+  <!-- JSON-LD : WebSite (accueil uniquement ; l'Organization est dans organization-jsonld.html) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "WebSite",
+    "@id": "https://mapleleafsoudure.com/#website",
     "name": "Maple Leaf Soudure",
-    "url": "https://mapleleafsoudure.com/"
+    "url": "https://mapleleafsoudure.com/",
+    "inLanguage": "fr-FR",
+    "publisher": { "@id": "https://mapleleafsoudure.com/#organization" }
   }
   </script>
 
@@ -103,12 +108,7 @@
         <div class="top-menu hover-masks">
           <div class="top-menu-nav">
             <div class="menu-topmenu-container">
-              <ul class="menu">
-                <li class="menu-item"><a href="#section-presentation">Le projet</a></li>
-                <li class="menu-item"><a href="#section-galerie">Réalisations</a></li>
-                <li class="menu-item"><a href="#section-offres">Les offres</a></li>
-                <li class="menu-item"><a href="/generateur_portfolio_web.html">Générateur de portfolio</a></li>
-              </ul>
+              {% include menu.html %}
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@
             <span class="circle"></span>
             <span class="lnk">Découvrir les offres ↓</span>
           </a>
-          <a href="/generateur_portfolio_web.html" class="btn hover-animated" style="color:#fff;border-color:rgba(255,255,255,0.7);">
+          <a href="/outils/generateur-portfolio/" class="btn hover-animated" style="color:#fff;border-color:rgba(255,255,255,0.7);">
             <span class="circle"></span>
             <span class="lnk">Générateur de portfolio →</span>
           </a>

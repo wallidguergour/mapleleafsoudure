@@ -13,6 +13,8 @@
   <!-- SEO : title, description, canonical, Open Graph, JSON-LD (jekyll-seo-tag) -->
   {% seo %}
 
+{% include organization-jsonld.html %}
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="/images/favicons/favicon.ico">
 
@@ -68,12 +70,7 @@
         <div class="top-menu hover-masks">
           <div class="top-menu-nav">
             <div class="menu-topmenu-container">
-              <ul class="menu">
-                <li class="menu-item"><a href="/">Accueil</a></li>
-                <li class="menu-item"><a href="/blog/">Blog</a></li>
-                <li class="menu-item"><a href="/offres/">Analyses d'offres</a></li>
-                <li class="menu-item"><a href="/soudeur-a-coup-sur/">Formation</a></li>
-              </ul>
+              {% include menu.html %}
             </div>
           </div>
         </div>

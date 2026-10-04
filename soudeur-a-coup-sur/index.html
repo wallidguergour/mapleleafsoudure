@@ -1,4 +1,7 @@
 ---
+# Page HTML autonome : title et description servent seulement à llms.txt
+title: "Soudeur à Coup Sûr"
+description: "Formation en ligne pour passer le Titre Professionnel et les examens de qualification soudage. Préparée par un ancien membre de jury d'examen."
 ---
 <!doctype html>
 <html lang="fr">
@@ -7,6 +10,8 @@
   <meta charset="UTF-8">
 
 {% include consent-head.html %}
+
+{% include organization-jsonld.html %}
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -40,16 +45,11 @@
   <meta name="twitter:description" content="Formation en ligne pour passer le Titre Professionnel et les examens de qualification soudage. Préparée par un ancien membre de jury d'examen.">
   <meta name="twitter:image" content="https://mapleleafsoudure.com/images/sacs/soudeur-a-coup-sur-partage.png">
 
-  <!-- JSON-LD : Organization + Product/Offer -->
+  <!-- JSON-LD : Product/Offer (l'Organization est dans organization-jsonld.html) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "name": "Maple Leaf Soudure",
-        "url": "https://mapleleafsoudure.com/"
-      },
       {
         "@type": "Product",
         "name": "Soudeur à Coup Sûr",
@@ -63,6 +63,7 @@
           "@type": "Brand",
           "name": "Maple Leaf Soudure"
         },
+        "manufacturer": { "@id": "https://mapleleafsoudure.com/#organization" },
         "offers": {
           "@type": "Offer",
           "price": "99",

@@ -1,0 +1,17 @@
+{%- comment -%}
+  Carte d'un outil (_data/outils.yml) : lien vers la page de présentation interne,
+  et lien externe facultatif (application sur sous-domaine ou dépôt GitHub), affiché seulement s'il est renseigné.
+{%- endcomment -%}
+<div class="cvio-card">
+  <h3 class="title_inner">{{ include.outil.nom }}</h3>
+  <p>{{ include.outil.description }}</p>
+  <div class="mls-card-actions">
+    <a href="{{ include.outil.page }}" class="btn hover-animated">
+      <span class="circle"></span>
+      <span class="lnk">Découvrir</span>
+    </a>
+    {%- if include.outil.lien_externe and include.outil.lien_externe != "" %}
+    <a href="{{ include.outil.lien_externe }}" class="mls-lien-externe" target="_blank" rel="noopener">{{ include.outil.libelle_externe | default: "Ouvrir" }}</a>
+    {%- endif %}
+  </div>
+</div>

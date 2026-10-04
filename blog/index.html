@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Blog"
-description: "Les articles de Maple Leaf Soudure : carrière, qualification et mobilité internationale pour soudeurs."
+description: "Tous les articles de Maple Leaf Soudure, par section : formation, carrière, entreprendre, IA et soudure."
 permalink: /blog/
 ---
 
@@ -11,22 +11,28 @@ permalink: /blog/
 
       <h1 class="title_inner">Blog</h1>
 
-      {% if site.posts.size > 0 %}
-      <ul class="mls-post-list">
-        {% for post in site.posts %}
-        <li>
-          <p class="mls-meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">{% include date-fr.html date=post.date %}</time>
-            {% if post.youtube_id %}<span aria-hidden="true">·</span> Vidéo{% endif %}
-          </p>
-          <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-          {% if post.description %}<p>{{ post.description }}</p>{% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <p>Les premiers articles arrivent bientôt.</p>
-      {% endif %}
+      {% for pilier in site.data.piliers %}
+      {%- assign mls_articles = site.categories[pilier.slug] %}
+      <section class="mls-blog-section">
+        <h2><a href="/{{ pilier.slug }}/">{{ pilier.titre }}</a></h2>
+        {% if mls_articles and mls_articles.size > 0 %}
+        <ul class="mls-post-list">
+          {% for post in mls_articles %}
+          <li>
+            <p class="mls-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{% include date-fr.html date=post.date %}</time>
+              {% if post.youtube_id %}<span aria-hidden="true">·</span> Vidéo{% endif %}
+            </p>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>Les premiers articles arrivent bientôt.</p>
+        {% endif %}
+      </section>
+      {% endfor %}
 
     </div>
   </div>

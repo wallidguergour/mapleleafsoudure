@@ -2,12 +2,15 @@
 layout: default
 ---
 {%- comment -%}
-  Gabarit d'article. En-tête attendu :
+  Gabarit d'article. Fichier : _posts/AAAA-MM-JJ-titre.md  ->  URL : /<category>/<titre>/
+  En-tête attendu :
 
   ---
   title: "Titre de l'article"
   description: "Résumé en une ou deux phrases (meta description)."
   date: 2026-10-05
+  category: formation-soudure        # OBLIGATOIRE, une seule : formation-soudure, carriere-soudeur,
+                                     # entreprendre-soudure ou ia-soudure (_data/piliers.yml)
   youtube_id: "XXXXXXXXXXX"          # facultatif : identifiant de la vidéo YouTube
   video_duration: "18:42"            # facultatif : durée totale (fin du dernier chapitre)
   video_upload_date: 2026-10-01      # facultatif : date de mise en ligne YouTube (sinon : date)
@@ -17,11 +20,17 @@ layout: default
     - time: "02:15"
       title: "Deuxième partie"
   ---
+
+  Contrôle : bash _outils/verifier-contenu.sh
 {%- endcomment -%}
+{%- assign mls_categorie = page.categories | first -%}
+{%- assign mls_pilier = site.data.piliers | where: "slug", mls_categorie | first -%}
 
 <article class="section about mls-page">
   <div class="content content-box">
     <div class="desc">
+
+      {% include breadcrumb.html pilier=mls_categorie titre=page.title %}
 
       <p class="mls-meta">
         <time datetime="{{ page.date | date_to_xmlschema }}">{% include date-fr.html date=page.date %}</time>
@@ -35,7 +44,23 @@ layout: default
 
       {{ content }}
 
-      <p style="margin-top:48px;"><a href="/blog/">Tous les articles</a></p>
+      {% if mls_pilier %}
+      <aside class="mls-suite">
+        {%- assign mls_autres = site.categories[mls_categorie] | where_exp: "post", "post.url != page.url" -%}
+        {%- if mls_autres.size > 0 %}
+        <h2>À lire aussi</h2>
+        <ul class="mls-post-list">
+          {%- for post in mls_autres limit: 3 %}
+          <li>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+          </li>
+          {%- endfor %}
+        </ul>
+        {%- endif %}
+        <p><a href="/{{ mls_pilier.slug }}/">Tous les articles : {{ mls_pilier.titre }}</a></p>
+      </aside>
+      {% endif %}
 
     </div>
   </div>

@@ -1,0 +1,14 @@
+# Cartes de la page /outils/.
+# page            : page de présentation interne (/outils/<nom>/)
+# lien_externe    : facultatif, application (sous-domaine) ou dépôt GitHub. Ne renseigner qu'une URL qui existe.
+# libelle_externe : texte du lien externe
+- nom: "Générateur de portfolio"
+  page: /outils/generateur-portfolio/
+  description: "Générateur de portfolio PDF pour soudeurs : remplis tes informations, ajoute tes photos et télécharge ton PDF. Tout se passe dans ton navigateur."
+  lien_externe:
+  libelle_externe:
+- nom: "Harword"
+  page: /outils/harword/
+  description: "L'IA pour la soudure : recherche documentaire, aide à la rédaction de WPS et suivi des compétences des soudeurs."
+  lien_externe:
+  libelle_externe:

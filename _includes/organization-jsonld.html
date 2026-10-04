@@ -1,0 +1,17 @@
+  <!-- JSON-LD : Organization unique du site (référencée ailleurs par son @id) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "{{ site.url }}/#organization",
+    "name": "Maple Leaf Soudure",
+    "url": "{{ site.url }}/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}{{ site.logo }}",
+      "width": 512,
+      "height": 512
+    },
+    "sameAs": {{ site.same_as | jsonify }}
+  }
+  </script>

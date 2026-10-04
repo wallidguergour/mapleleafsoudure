@@ -1,0 +1,37 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+{%- comment -%}
+  Généré par Jekyll. Une page n'apparaît pas si elle a « llms: false » ou un robots « noindex ».
+{%- endcomment -%}
+{%- capture mls_cles -%}/,/formations/,/soudeur-a-coup-sur/,/outils/,/a-propos/,/blog/{%- endcapture -%}
+{%- assign mls_cles = mls_cles | split: "," -%}
+# Maple Leaf Soudure
+
+> {{ site.description }}
+
+## Pages principales
+{% for url in mls_cles -%}
+{%- assign p = site.pages | where: "url", url | first -%}
+{%- if p and p.llms != false -%}{%- unless p.robots contains "noindex" %}
+- [{% if url == "/" %}Accueil{% else %}{{ p.title }}{% endif %}]({{ site.url }}{{ url }}): {% if url == "/" %}{{ site.description }}{% else %}{{ p.description }}{% endif %}
+{%- endunless -%}{%- endif -%}
+{%- endfor %}
+
+## Sections
+{% for pilier in site.data.piliers %}
+- [{{ pilier.titre }}]({{ site.url }}/{{ pilier.slug }}/): {{ pilier.description }}
+{%- for post in site.categories[pilier.slug] %}
+  - [{{ post.title }}]({{ site.url }}{{ post.url }}){% if post.description %}: {{ post.description }}{% endif %}
+{%- endfor -%}
+{%- endfor %}
+
+## Outils
+{% for outil in site.data.outils -%}
+{%- assign p = site.pages | where: "url", outil.page | first -%}
+{%- if p and p.llms != false -%}{%- unless p.robots contains "noindex" %}
+- [{{ outil.nom }}]({{ site.url }}{{ outil.page }}): {{ outil.description }}
+{%- endunless -%}{%- endif -%}
+{%- endfor %}

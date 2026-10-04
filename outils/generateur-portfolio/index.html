@@ -1,7 +1,9 @@
 ---
 title: "Générateur de portfolio PDF"
 description: "Générateur de portfolio PDF pour soudeurs : remplis tes informations, ajoute tes photos et télécharge ton PDF. Tout se passe dans ton navigateur."
-permalink: /generateur_portfolio_web.html
+permalink: /outils/generateur-portfolio/
+redirect_from:
+  - /generateur_portfolio_web.html
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -9,6 +11,8 @@ permalink: /generateur_portfolio_web.html
 <meta charset="UTF-8">
 
 {% include consent-head.html %}
+
+{% include organization-jsonld.html %}
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -231,10 +235,7 @@ textarea{resize:vertical;min-height:64px;line-height:1.45}
 <header class="mlps-header">
   <a href="/" class="mlps-header__logo">Maple Leaf Soudure</a>
   <nav class="mlps-header__nav">
-    <a href="/">Accueil</a>
-    <a href="/offres/">Analyses d'offres</a>
-    <a href="/soudeur-a-coup-sur/">Formation</a>
-    <a href="/generateur_portfolio_web.html" class="is-current">Générateur de portfolio</a>
+    {% include menu.html style="liens" %}
   </nav>
 </header>
 

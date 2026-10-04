@@ -1,0 +1,18 @@
+# Les 4 sections du site. Chaque article déclare UNE de ces catégories (champ « category »).
+# slug = catégorie = URL du pilier (/slug/) = préfixe des articles (/slug/titre-article/)
+- slug: formation-soudure
+  titre: "Formation soudure"
+  menu: "Se former"
+  description: "Devenir soudeur : certifications, formations et centres de formation."
+- slug: carriere-soudeur
+  titre: "Carrière de soudeur"
+  menu: "Carrière"
+  description: "Soudeur salarié : salaires, expatriation et évolution de carrière."
+- slug: entreprendre-soudure
+  titre: "Entreprendre dans la soudure"
+  menu: "Entreprendre"
+  description: "Se mettre à son compte : statut, tarifs, clients et création d'atelier."
+- slug: ia-soudure
+  titre: "IA et soudure"
+  menu: "IA et soudure"
+  description: "L'intelligence artificielle appliquée à la soudure et à la gestion d'atelier, et les outils Maple Leaf Soudure."

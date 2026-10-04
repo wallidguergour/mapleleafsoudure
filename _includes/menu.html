@@ -1,0 +1,17 @@
+{%- comment -%}
+  Menu principal (_data/navigation.yml).
+  include.style = "theme" (en-tête du thème, par défaut) ou "liens" (simple suite de liens, ex. générateur).
+{%- endcomment -%}
+{%- if include.style == "liens" -%}
+  {%- for item in site.data.navigation -%}
+    {%- assign debut = page.url | slice: 0, item.url.size %}
+    <a href="{{ item.url }}"{% if debut == item.url %} class="is-current"{% endif %}>{{ item.titre }}</a>
+  {%- endfor -%}
+{%- else -%}
+<ul class="menu">
+  {%- for item in site.data.navigation -%}
+    {%- assign debut = page.url | slice: 0, item.url.size %}
+  <li class="menu-item{% if debut == item.url %} current-menu-item{% endif %}"><a href="{{ item.url }}">{{ item.titre }}</a></li>
+  {%- endfor %}
+</ul>
+{%- endif -%}

@@ -1209,3 +1209,119 @@ a.btn[data-gumroad-overlay-checkout]:focus-visible {
 .section.cvio-dark .cvio-price__paiement {
   color: rgba(255, 255, 255, 0.55);
 }
+
+/* ================================================
+   ARBORESCENCE : fil d'Ariane, pied de page, cartes outils
+================================================ */
+.mls-breadcrumb ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  padding: 0;
+  margin: 0 0 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.mls-breadcrumb li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.section .desc .mls-breadcrumb li::before {
+  content: none;
+}
+
+.mls-breadcrumb li + li::before {
+  content: "›";
+  margin: 0 8px;
+}
+
+.section .desc .mls-breadcrumb li + li::before {
+  content: "›";
+  position: static;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.mls-breadcrumb a {
+  color: var(--teal);
+}
+
+.mls-legal--sections {
+  margin-top: 0;
+}
+
+.mls-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: 16px;
+}
+
+.cvio-card .mls-card-actions .btn {
+  margin-top: 0;
+}
+
+.mls-lien-externe {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Deux options côte à côte, de même largeur (empilées seulement sur petit écran) */
+.mls-options {
+  flex-wrap: nowrap;
+  gap: 16px;
+}
+
+.mls-options .cvio-card {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 24px 20px;
+}
+
+@media (max-width: 600px) {
+  .mls-options {
+    flex-wrap: wrap;
+  }
+
+  .mls-options .cvio-card {
+    flex: 1 1 100%;
+  }
+}
+
+.mls-avertissement {
+  margin: 40px 0;
+  padding: 20px 24px;
+  border-left: 4px solid var(--teal);
+  background: rgba(20, 44, 53, 0.05);
+}
+
+.mls-avertissement p {
+  margin: 0 0 8px;
+}
+
+.mls-suite {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--teal-dim);
+}
+
+.mls-blog-section {
+  margin-bottom: 40px;
+}
+
+.mls-page h2 a,
+.mls-post-list h3 a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.mls-post-list h3 {
+  margin: 4px 0 8px;
+  font-size: 18px;
+}
