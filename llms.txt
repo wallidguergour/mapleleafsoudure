@@ -22,7 +22,12 @@ sitemap: false
 
 ## Sections
 {% for pilier in site.data.piliers %}
+{%- assign p = site.pages | where: "pilier", pilier.slug | first %}
+{%- if p.llms == false or p.robots contains "noindex" %}
+- {{ pilier.titre }}: {{ pilier.description }}
+{%- else %}
 - [{{ pilier.titre }}]({{ site.url }}/{{ pilier.slug }}/): {{ pilier.description }}
+{%- endif -%}
 {%- for post in site.categories[pilier.slug] %}
   - [{{ post.title }}]({{ site.url }}{{ post.url }}){% if post.description %}: {{ post.description }}{% endif %}
 {%- endfor -%}
