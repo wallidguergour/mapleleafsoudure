@@ -1,17 +1,14 @@
 {%- comment -%}
-  Vidéo YouTube en chargement différé (youtube-nocookie.com).
-  Rien n'est chargé depuis YouTube avant le clic, sauf la miniature (i.ytimg.com).
+  Lecteur YouTube en mode confidentialité renforcée (youtube-nocookie.com), chargé directement dans la page
+  pour que Google détecte la vidéo (pas de chargement au clic). Voir la politique de confidentialité.
   Paramètres : id, title, chapters (liste de { time, title }).
 {%- endcomment -%}
 <figure class="mls-video">
-  <div class="mls-video__frame" data-youtube-id="{{ include.id }}" data-youtube-title="{{ include.title | escape }}">
-    <button type="button" class="mls-video__play" aria-label="Lire la vidéo : {{ include.title | escape }}">
-      <img src="https://i.ytimg.com/vi/{{ include.id }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-      <span class="mls-video__icon" aria-hidden="true"></span>
-    </button>
+  <div class="mls-video__frame" data-youtube-id="{{ include.id }}">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ include.id }}?rel=0" title="{{ include.title | escape }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
   <figcaption class="mls-video__notice">
-    La vidéo est hébergée par YouTube (mode confidentialité renforcée) et ne se charge qu'au clic.
+    Lecteur YouTube en mode confidentialité renforcée : voir la <a href="/politique-de-confidentialite/">politique de confidentialité</a>.
   </figcaption>
 </figure>
 

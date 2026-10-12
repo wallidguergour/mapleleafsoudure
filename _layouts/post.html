@@ -11,9 +11,14 @@ layout: default
   date: 2026-10-05
   category: formation-soudure        # OBLIGATOIRE, une seule : formation-soudure, carriere-soudeur,
                                      # entreprendre-soudure ou ia-soudure (_data/piliers.yml)
+  intro: |                           # facultatif : introduction en Markdown, affichée AVANT la vidéo
+    Premier paragraphe...
   youtube_id: "XXXXXXXXXXX"          # facultatif : identifiant de la vidéo YouTube
-  video_duration: "18:42"            # facultatif : durée totale (fin du dernier chapitre)
-  video_upload_date: 2026-10-01      # facultatif : date de mise en ligne YouTube (sinon : date)
+  video_title: "..."                 # facultatif : titre exact de la vidéo sur YouTube (sinon : title)
+  video_description: "..."           # facultatif : description de la vidéo (sinon : description)
+  video_thumbnail: maxresdefault     # facultatif : miniature YouTube (maxresdefault si elle existe, sinon hqdefault)
+  video_duration: "18:42"            # facultatif : durée totale exacte (fin du dernier chapitre)
+  video_upload_date: 2026-10-01T10:00:00+02:00   # facultatif : date de mise en ligne YouTube (sinon : date)
   chapters:                          # facultatif : horodatages entre guillemets
     - time: "00:00"
       title: "Introduction"
@@ -25,6 +30,7 @@ layout: default
 {%- endcomment -%}
 {%- assign mls_categorie = page.categories | first -%}
 {%- assign mls_pilier = site.data.piliers | where: "slug", mls_categorie | first -%}
+{%- assign mls_video_titre = page.video_title | default: page.title -%}
 
 <article class="section about mls-page">
   <div class="content content-box">
@@ -38,8 +44,14 @@ layout: default
 
       <h1 class="title_inner">{{ page.title }}</h1>
 
+      {% if page.intro %}
+      <div class="mls-intro">
+        {{ page.intro | markdownify }}
+      </div>
+      {% endif %}
+
       {% if page.youtube_id %}
-        {% include youtube.html id=page.youtube_id title=page.title chapters=page.chapters %}
+        {% include youtube.html id=page.youtube_id title=mls_video_titre chapters=page.chapters %}
       {% endif %}
 
       {{ content }}

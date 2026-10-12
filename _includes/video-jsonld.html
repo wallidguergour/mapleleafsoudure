@@ -7,19 +7,20 @@
 {%- if page.video_duration -%}
   {%- include time-to-seconds.html time=page.video_duration -%}
   {%- assign mls_duration = mls_seconds -%}
+  {%- capture mls_duration_iso -%}PT{% if mls_h > 0 %}{{ mls_h }}H{% endif %}{% if mls_m > 0 %}{{ mls_m }}M{% endif %}{% if mls_s > 0 or mls_duration == 0 %}{{ mls_s }}S{% endif %}{%- endcapture -%}
 {%- endif -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": {{ page.title | jsonify }},
-  "description": {{ page.description | default: site.description | jsonify }},
-  "thumbnailUrl": ["https://i.ytimg.com/vi/{{ mls_vid }}/hqdefault.jpg"],
+  "name": {{ page.video_title | default: page.title | jsonify }},
+  "description": {{ page.video_description | default: page.description | default: site.description | jsonify }},
+  "thumbnailUrl": ["https://i.ytimg.com/vi/{{ mls_vid }}/{{ page.video_thumbnail | default: 'hqdefault' }}.jpg"],
   "uploadDate": {{ page.video_upload_date | default: page.date | date_to_xmlschema | jsonify }},
   "embedUrl": "https://www.youtube-nocookie.com/embed/{{ mls_vid }}",
   "url": "https://www.youtube.com/watch?v={{ mls_vid }}"
   {%- if mls_duration %},
-  "duration": "PT{{ mls_duration }}S"
+  "duration": "{{ mls_duration_iso }}"
   {%- endif %}
   {%- if page.chapters and page.chapters.size > 0 %},
   "hasPart": [

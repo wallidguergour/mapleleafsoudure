@@ -45,6 +45,9 @@
 - Chaque article déclare UNE seule catégorie dans son en-tête, `category: ...`, parmi : `formation-soudure`, `carriere-soudeur`, `entreprendre-soudure`, `ia-soudure`. Jamais `categories:`.
 - Les articles sur les outils vont dans `ia-soudure`.
 - Le gabarit ajoute le fil d'Ariane, le lien vers le pilier et « À lire aussi » (jusqu'à 3 articles de la même catégorie).
+- Vidéo : `intro` (Markdown, affichée avant la vidéo), `youtube_id`, `video_title`, `video_description`, `video_thumbnail`, `video_duration`, `video_upload_date` et `chapters`, avec des valeurs réelles relevées sur YouTube. Le gabarit génère le JSON-LD VideoObject avec un Clip par chapitre.
+- Le lecteur YouTube (youtube-nocookie.com) est chargé directement dans la page, sans attendre de clic, pour que Google détecte la vidéo : ce choix est déclaré dans la politique de confidentialité (stockage local du lecteur, domaines Google contactés).
+- Sous chaque H2 formulé en question : une réponse directe de 40 à 60 mots, puis le développement.
 
 ## Stratégie des outils
 

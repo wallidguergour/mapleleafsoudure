@@ -1325,3 +1325,112 @@ a.btn[data-gumroad-overlay-checkout]:focus-visible {
   margin: 4px 0 8px;
   font-size: 18px;
 }
+
+/* ================================================
+   ARTICLE : introduction et lecteur vidéo pleine largeur
+   (le lecteur occupe toute la largeur du bloc, malgré la marge gauche de la colonne du thème)
+================================================ */
+.mls-intro {
+  margin-bottom: 8px;
+}
+
+.mls-page .mls-video {
+  margin: 24px 0 8px;
+}
+
+@media (min-width: 1200px) {
+  .mls-page .mls-video {
+    margin-left: -195px;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1199px) {
+  .mls-page .mls-video {
+    margin-left: -145px;
+  }
+}
+
+.mls-video__notice a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Tableau comparatif des articles */
+.mls-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+
+.mls-page table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.mls-page th,
+.mls-page td {
+  padding: 10px 12px;
+  border: 1px solid var(--teal-dim);
+  text-align: left;
+  vertical-align: top;
+}
+
+.mls-page thead th {
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.mls-page tbody th {
+  background: rgba(20, 44, 53, 0.05);
+  font-weight: 700;
+}
+
+/* Pages de contenu : texte aligné à gauche sur mobile (le thème centre la colonne) */
+@media (max-width: 720px) {
+  .section.about.mls-page .desc {
+    text-align: left;
+  }
+}
+
+/* Articles : fil d'Ariane sur une ligne et titre plus compact, pour garder la vidéo dans le premier écran */
+.mls-breadcrumb ol {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mls-breadcrumb li[aria-current="page"] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.mls-page h1.title_inner {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 720px) {
+  .mls-page h1.title_inner {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+}
+
+/* ================================================
+   ACCUEIL : en-tête posé sur la photo du hero
+   (logo et icône du menu en blanc sur la photo ; menu en teal une fois l'en-tête devenu clair)
+================================================ */
+.background-enabled .header:not(.fixed) .logo a {
+  color: #ffffff;
+}
+
+.background-enabled .header:not(.fixed) .menu-btn span,
+.background-enabled .header:not(.fixed) .menu-btn:before,
+.background-enabled .header:not(.fixed) .menu-btn:after {
+  background: #ffffff;
+}
+
+.background-enabled .header.fixed .top-menu ul li a {
+  color: var(--teal);
+}
