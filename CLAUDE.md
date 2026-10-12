@@ -72,9 +72,9 @@
 
 ## Commande /article
 
-`/article <numéro> <lien YouTube>` (fichier `.claude/commands/article.md`, local) : crée un article à partir de la vidéo `E:\01_MAPLE_LEAF_SOUDURE\Articles\Videos\<numéro>\<numéro>.mov` (ou `.mp4`), puis s'arrête avant publication.
+`/article <numéro> <lien YouTube>` (fichier `.claude/commands/article.md`, local) : crée un article à partir de l'unique fichier `.mp4` ou `.mov` du dossier `E:\01_MAPLE_LEAF_SOUDURE\Articles\Videos\<numéro>\` (nom libre ; s'il y en a zéro ou plusieurs, la commande s'arrête et demande), puis s'arrête avant publication.
 
-1. Transcription : `py -3.12 _outils/transcribe.py <vidéo> --model medium` (corrections `_outils/corrections.json` et glossaire `_outils/glossaire-local.txt` chargés automatiquement ; fichiers produits à côté de la vidéo).
+1. Transcription : `py -3.12 _outils/transcribe.py <vidéo> --model medium --nom <numéro>` (corrections `_outils/corrections.json` et glossaire `_outils/glossaire-local.txt` chargés automatiquement ; fichiers produits à côté de la vidéo, nommés d'après le numéro : `<numéro>.srt`, `<numéro>_transcript.md`, `<numéro>_transcript.txt`).
 2. Compréhension de la transcription et choix d'une catégorie.
 3. Recherche SEO : `_outils/seo_cluster.py` (identifiants DataForSEO dans `DATAFORSEO_LOGIN` et `DATAFORSEO_PASSWORD`), lancé depuis le dossier de la vidéo ; seules les requêtes fidèles au contenu sont gardées.
 4. Données réelles de la vidéo : `py -3.12 _outils/youtube_infos.py <lien>`.

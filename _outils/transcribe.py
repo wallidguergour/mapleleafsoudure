@@ -15,6 +15,7 @@ Exemple :
     python transcribe.py video.mp4
     python transcribe.py video.mp4 --glossaire glossaire.txt --corrections corrections.json
     python transcribe.py video.mp4 --no-vad   # garde toute la parole, meme sur fond de musique
+    python transcribe.py "Mon export.mov" --nom 012   # sorties : 012.srt, 012_transcript.md, 012_transcript.txt
 
 Corrections : si corrections.json existe dans le dossier du script, il est charge
 automatiquement. Idem pour glossaire-local.txt (termes sensibles, non versionne). Un fichier passe avec --corrections s'y ajoute et l'emporte en cas de doublon.
@@ -82,6 +83,7 @@ def main():
     p.add_argument("--device", default="cpu", choices=["cpu", "cuda", "auto"],
                    help="cpu par defaut (fonctionne partout), cuda si les librairies NVIDIA sont installees")
     p.add_argument("--corrections", help='JSON {"mauvais": "correct"} en plus de corrections.json')
+    p.add_argument("--nom", help="Nom de base des fichiers produits, a cote de la video (par defaut : nom de la video)")
     p.add_argument("--no-vad", action="store_true",
                    help="desactive le filtre VAD (utile si de la parole est coupee, ex. sur fond de musique)")
     a = p.parse_args()
@@ -111,7 +113,8 @@ def main():
         beam_size=5,
     )
 
-    srt, md, txt = [], [f"# Transcription : {video.stem}\n"], []
+    nom = a.nom or video.stem
+    srt, md, txt = [], [f"# Transcription : {nom}\n"], []
     for i, seg in enumerate(segments, 1):
         text = fix(seg.text, corrections)
         srt.append(f"{i}\n{ts(seg.start)} --> {ts(seg.end)}\n{text}\n")
@@ -119,7 +122,7 @@ def main():
         txt.append(text)
         print(f"[{mmss(seg.start)}] {text}")
 
-    base = video.with_suffix("")
+    base = video.parent / nom
     Path(f"{base}.srt").write_text("\n".join(srt), encoding="utf-8")
     Path(f"{base}_transcript.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     Path(f"{base}_transcript.txt").write_text(" ".join(txt) + "\n", encoding="utf-8")
