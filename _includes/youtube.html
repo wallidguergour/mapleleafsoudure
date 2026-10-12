@@ -2,7 +2,9 @@
   Lecteur YouTube en mode confidentialité renforcée (youtube-nocookie.com), chargé directement dans la page
   pour que Google détecte la vidéo (pas de chargement au clic). Voir la politique de confidentialité.
   Paramètres : id, title, chapters (liste de { time, title }).
+  Le bloc regroupe le lecteur et ses chapitres : chaque liste de chapitres pilote son propre lecteur.
 {%- endcomment -%}
+<div class="mls-video-bloc">
 <figure class="mls-video">
   <div class="mls-video__frame" data-youtube-id="{{ include.id }}">
     <iframe src="https://www.youtube-nocookie.com/embed/{{ include.id }}?rel=0" title="{{ include.title | escape }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -13,7 +15,7 @@
 </figure>
 
 {%- if include.chapters and include.chapters.size > 0 %}
-<nav class="mls-chapters" aria-label="Chapitres de la vidéo">
+<nav class="mls-chapters" aria-label="Chapitres de la vidéo : {{ include.title | escape }}">
   <p class="mls-meta">Chapitres</p>
   <ol>
     {%- for chapitre in include.chapters %}
@@ -23,3 +25,4 @@
   </ol>
 </nav>
 {%- endif %}
+</div>

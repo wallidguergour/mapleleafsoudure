@@ -1,11 +1,13 @@
 {%- comment -%}
-  Données structurées VideoObject, chapitres déclarés en Clip (hasPart).
-  endOffset d'un chapitre = début du suivant ; pour le dernier, video_duration si renseigné.
+  Données structurées VideoObject d'une vidéo, chapitres déclarés en Clip (hasPart).
+  Paramètres : id, titre, description, miniature, duree ("mm:ss"), date (mise en ligne), chapitres.
+  endOffset d'un chapitre = début du suivant ; pour le dernier, la durée si elle est renseignée.
 {%- endcomment -%}
-{%- assign mls_vid = page.youtube_id -%}
+{%- assign mls_vid = include.id -%}
+{%- assign mls_chapitres = include.chapitres -%}
 {%- assign mls_duration = nil -%}
-{%- if page.video_duration -%}
-  {%- include time-to-seconds.html time=page.video_duration -%}
+{%- if include.duree -%}
+  {%- include time-to-seconds.html time=include.duree -%}
   {%- assign mls_duration = mls_seconds -%}
   {%- capture mls_duration_iso -%}PT{% if mls_h > 0 %}{{ mls_h }}H{% endif %}{% if mls_m > 0 %}{{ mls_m }}M{% endif %}{% if mls_s > 0 or mls_duration == 0 %}{{ mls_s }}S{% endif %}{%- endcapture -%}
 {%- endif -%}
@@ -13,23 +15,23 @@
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": {{ page.video_title | default: page.title | jsonify }},
-  "description": {{ page.video_description | default: page.description | default: site.description | jsonify }},
-  "thumbnailUrl": ["https://i.ytimg.com/vi/{{ mls_vid }}/{{ page.video_thumbnail | default: 'hqdefault' }}.jpg"],
-  "uploadDate": {{ page.video_upload_date | default: page.date | date_to_xmlschema | jsonify }},
+  "name": {{ include.titre | jsonify }},
+  "description": {{ include.description | jsonify }},
+  "thumbnailUrl": ["https://i.ytimg.com/vi/{{ mls_vid }}/{{ include.miniature | default: 'hqdefault' }}.jpg"],
+  "uploadDate": {{ include.date | date_to_xmlschema | jsonify }},
   "embedUrl": "https://www.youtube-nocookie.com/embed/{{ mls_vid }}",
   "url": "https://www.youtube.com/watch?v={{ mls_vid }}"
   {%- if mls_duration %},
   "duration": "{{ mls_duration_iso }}"
   {%- endif %}
-  {%- if page.chapters and page.chapters.size > 0 %},
+  {%- if mls_chapitres and mls_chapitres.size > 0 %},
   "hasPart": [
-    {%- for chapitre in page.chapters %}
+    {%- for chapitre in mls_chapitres %}
     {%- include time-to-seconds.html time=chapitre.time %}
     {%- assign mls_start = mls_seconds %}
     {%- assign mls_end = nil %}
     {%- unless forloop.last %}
-      {%- assign mls_next = page.chapters[forloop.index] %}
+      {%- assign mls_next = mls_chapitres[forloop.index] %}
       {%- include time-to-seconds.html time=mls_next.time %}
       {%- assign mls_end = mls_seconds %}
     {%- else %}

@@ -24,9 +24,23 @@ layout: default
       title: "Introduction"
     - time: "02:15"
       title: "Deuxième partie"
+  videos_complementaires:            # facultatif : autres vidéos sur le même sujet, mêmes champs que la vidéo principale
+    - youtube_id: "YYYYYYYYYYY"
+      video_title: "..."
+      video_description: "..."
+      video_thumbnail: maxresdefault
+      video_duration: "36:30"
+      video_upload_date: 2025-09-28T09:01:03-07:00
+      chapters:
+        - time: "00:00"
+          title: "..."
   ---
 
-  Contrôle : bash _outils/verifier-contenu.sh
+  Chaque vidéo complémentaire se place dans le corps, dans la section qu'elle illustre :
+    {% raw %}{% include video-complementaire.html id="YYYYYYYYYYY" %}{% endraw %}
+  Son JSON-LD VideoObject est ajouté automatiquement en bas de page.
+
+  Contrôles : py -3.12 _outils/verifier-article.py <fichier> et bundle exec ruby _outils/verifier-contenu.rb
 {%- endcomment -%}
 {%- assign mls_categorie = page.categories | first -%}
 {%- assign mls_pilier = site.data.piliers | where: "slug", mls_categorie | first -%}
@@ -78,4 +92,11 @@ layout: default
   </div>
 </article>
 
-{% if page.youtube_id %}{% include video-jsonld.html %}{% endif %}
+{% if page.youtube_id %}
+{%- assign mls_video_date = page.video_upload_date | default: page.date -%}
+{%- assign mls_video_description = page.video_description | default: page.description -%}
+{% include video-jsonld.html id=page.youtube_id titre=mls_video_titre description=mls_video_description miniature=page.video_thumbnail duree=page.video_duration date=mls_video_date chapitres=page.chapters %}
+{% endif %}
+{% for mls_v in page.videos_complementaires %}
+{% include video-jsonld.html id=mls_v.youtube_id titre=mls_v.video_title description=mls_v.video_description miniature=mls_v.video_thumbnail duree=mls_v.video_duration date=mls_v.video_upload_date chapitres=mls_v.chapters %}
+{% endfor %}

@@ -46,6 +46,7 @@
 - Les articles sur les outils vont dans `ia-soudure`.
 - Le gabarit ajoute le fil d'Ariane, le lien vers le pilier et « À lire aussi » (jusqu'à 3 articles de la même catégorie).
 - Vidéo : `intro` (Markdown, affichée avant la vidéo), `youtube_id`, `video_title`, `video_description`, `video_thumbnail`, `video_duration`, `video_upload_date` et `chapters`, avec des valeurs réelles relevées sur YouTube. Le gabarit génère le JSON-LD VideoObject avec un Clip par chapitre.
+- Vidéos complémentaires (plusieurs vidéos sur le même sujet, un seul article pour éviter la concurrence entre articles) : liste `videos_complementaires` dans l'en-tête, mêmes champs que la vidéo principale. La vidéo principale reste en haut ; chaque vidéo complémentaire est placée une seule fois dans la section qu'elle illustre avec `{% include video-complementaire.html id="<youtube_id>" %}`. Un VideoObject par vidéo est généré automatiquement.
 - Le lecteur YouTube (youtube-nocookie.com) est chargé directement dans la page, sans attendre de clic, pour que Google détecte la vidéo : ce choix est déclaré dans la politique de confidentialité (stockage local du lecteur, domaines Google contactés).
 - Sous chaque H2 formulé en question : une réponse directe de 40 à 60 mots, puis le développement.
 
@@ -73,6 +74,10 @@
 ## Commande /article
 
 `/article <numéro> <lien YouTube>` (fichier `.claude/commands/article.md`, local) : crée un article à partir de l'unique fichier `.mp4` ou `.mov` du dossier `E:\01_MAPLE_LEAF_SOUDURE\Articles\Videos\<numéro>\` (nom libre ; s'il y en a zéro ou plusieurs, la commande s'arrête et demande), puis s'arrête avant publication.
+
+`/article <numéro> <lien YouTube> --avec <numéro> <numéro> ...` : même chose avec des vidéos complémentaires (même sujet). Elles sont aussi transcrites, servent de sources supplémentaires et sont intégrées dans l'article (lecteur et VideoObject), la vidéo principale restant en haut.
+
+Liste de référence : `E:\01_MAPLE_LEAF_SOUDURE\Articles\Videos\liste-videos.md` (hors dépôt) : numéro, sujet, titre, lien, date de publication, durée, fichier et statut de l'article de chaque vidéo longue de la chaîne. Les numéros suivent l'ordre de publication (001 = la plus ancienne). La commande y lit les liens des vidéos complémentaires et y met à jour les statuts.
 
 1. Transcription : `py -3.12 _outils/transcribe.py <vidéo> --model medium --nom <numéro>` (corrections `_outils/corrections.json` et glossaire `_outils/glossaire-local.txt` chargés automatiquement ; fichiers produits à côté de la vidéo, nommés d'après le numéro : `<numéro>.srt`, `<numéro>_transcript.md`, `<numéro>_transcript.txt`).
 2. Compréhension de la transcription et choix d'une catégorie.

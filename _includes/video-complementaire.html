@@ -1,0 +1,10 @@
+{%- comment -%}
+  Vidéo complémentaire, à placer dans le corps de l'article, dans la section qu'elle illustre :
+    {% include video-complementaire.html id="XXXXXXXXXXX" %}
+  Les données viennent de l'entrée correspondante de « videos_complementaires » dans l'en-tête.
+  Son JSON-LD VideoObject est ajouté automatiquement par le gabarit d'article.
+{%- endcomment -%}
+{%- assign mls_vc = page.videos_complementaires | where: "youtube_id", include.id | first -%}
+{%- if mls_vc -%}
+{% include youtube.html id=mls_vc.youtube_id title=mls_vc.video_title chapters=mls_vc.chapters %}
+{%- endif -%}
