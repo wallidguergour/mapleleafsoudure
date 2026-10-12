@@ -125,8 +125,7 @@ C'est une compétence très valorisée. Je suis chaudronnier, mais tu peux aussi
 
 ## Quel est le salaire d'un soudeur en intérim ?
 
-En intérim, un soudeur peut toucher 1 900 à 2 000 € par mois, mais pas au-delà sans compétences supplémentaires. Le salaire augmente si tu sais faire de la métallerie ou de la chaudronnerie, du montage de A à Z sur plan, si tu as des qualifications, ou si tu maîtrises l'électrode enrobée, le TIG et des matériaux comme l'aluminium.
-<!-- à vérifier : 1 900 à 2 000 € net ou brut par mois ? -->
+En intérim, un soudeur peut toucher 1 900 à 2 000 € net par mois, pas au-delà sans compétences supplémentaires. Le salaire augmente si tu sais faire de la métallerie ou de la chaudronnerie, du montage de A à Z sur plan, si tu as des qualifications, ou si tu maîtrises l'électrode enrobée, le TIG et des matériaux comme l'aluminium.
 
 Si tu fais du montage sur plan et des pièces sur mesure, ton salaire peut vraiment augmenter. Pareil avec des qualifications comme la H-L045, ou une vraie maîtrise de l'électrode enrobée et du TIG.
 
