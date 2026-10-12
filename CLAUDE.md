@@ -66,4 +66,20 @@
 
 - `bash _outils/verifier-nom.sh` : aucun nom réel hors `/mentions-legales/` (noms lus dans `.noms-interdits`, fichier local non versionné).
 - `bundle exec ruby _outils/verifier-contenu.rb` : catégories des articles, marqueurs sur les pages indexables, sitemap et llms.txt sans page noindex, JSON-LD valide et sans marqueur. Code de sortie 1 en cas de problème.
-- Lancer les deux avant chaque push.
+- `py -3.12 _outils/verifier-article.py _posts/<fichier>.md` : en-tête, champs vidéo et chapitres, réponses directes de 40 à 60 mots, tirets cadratins, marqueurs, liens internes ; signale les tics et les commentaires « à vérifier ».
+- `py -3.12 _outils/verifier-navigateur.py [--article /<catégorie>/<slug>/]` : construit et sert le site, puis contrôle dans Chrome le bandeau et le consentement sur toutes les pages, les liens internes, la page de vente (99 € et 69 €) et la position de la vidéo d'un article. Prérequis : `py -3.12 -m pip install --user playwright`.
+- Lancer `verifier-nom.sh`, `verifier-contenu.rb` et `verifier-navigateur.py` avant chaque push.
+
+## Commande /article
+
+`/article <numéro> <lien YouTube>` (fichier `.claude/commands/article.md`, local) : crée un article à partir de la vidéo `E:\01_MAPLE_LEAF_SOUDURE\Articles\Videos\<numéro>\<numéro>.mov` (ou `.mp4`), puis s'arrête avant publication.
+
+1. Transcription : `py -3.12 _outils/transcribe.py <vidéo> --model medium` (corrections `_outils/corrections.json` et glossaire `_outils/glossaire-local.txt` chargés automatiquement ; fichiers produits à côté de la vidéo).
+2. Compréhension de la transcription et choix d'une catégorie.
+3. Recherche SEO : `_outils/seo_cluster.py` (identifiants DataForSEO dans `DATAFORSEO_LOGIN` et `DATAFORSEO_PASSWORD`), lancé depuis le dossier de la vidéo ; seules les requêtes fidèles au contenu sont gardées.
+4. Données réelles de la vidéo : `py -3.12 _outils/youtube_infos.py <lien>`.
+5. Rédaction selon les règles de ce fichier ; commentaire « à vérifier » en cas d'ambiguïté.
+6. Vérifications (les quatre scripts ci-dessus et le validateur schema.org), commit sans push.
+7. Arrêt : URL locale de relecture, points « à vérifier », description YouTube mise à jour. Push seulement après accord.
+
+`_outils/glossaire-local.txt` contient des noms sensibles (clients, personnes) : il n'est jamais versionné.

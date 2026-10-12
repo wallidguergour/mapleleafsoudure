@@ -23,3 +23,7 @@ REFERENCE-ancienne-page.html
 
 # Noms à rechercher par _outils/verifier-nom.sh (jamais versionné)
 .noms-interdits
+
+# Outils : glossaire sensible et caches Python (jamais versionnés)
+_outils/glossaire-local.txt
+__pycache__/
