@@ -1434,3 +1434,21 @@ a.btn[data-gumroad-overlay-checkout]:focus-visible {
 .background-enabled .header.fixed .top-menu ul li a {
   color: var(--teal);
 }
+
+/* Tableaux des articles : en-têtes de ligne lisibles (le thème les met en majuscules gris clair) */
+.mls-page table th {
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 14px;
+}
+
+.mls-page tbody th {
+  color: var(--text-dark);
+}
+
+/* En-tête : fond opaque sur toutes les pages, sauf posé sur la photo du hero de l'accueil.
+   Le thème ne donne un fond qu'aux pages à plusieurs sections : sur les articles et les piliers,
+   le menu chevauchait le texte au défilement. */
+body:not(.background-enabled) .header {
+  background: var(--bg);
+}

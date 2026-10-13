@@ -207,8 +207,8 @@ def main():
                 if pg.locator("#cc-main .cm").is_visible():
                     pg.get_by_role("button", name="Tout refuser").first.click()
                     pg.wait_for_timeout(500)
-                cadre = pg.locator(".mls-video__frame iframe")
-                if cadre.count() == 0:
+                cadre = pg.locator(".mls-video__frame iframe").first  # lecteur principal (en haut)
+                if pg.locator(".mls-video__frame iframe").count() == 0:
                     problemes.append(f"article {a.article} : lecteur vidéo absent")
                 else:
                     bx = cadre.bounding_box()

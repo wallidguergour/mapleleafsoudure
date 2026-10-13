@@ -77,10 +77,10 @@ def main():
     duree = int(duree) if duree is not None else None
     description = champ_json(page, "shortDescription")
 
-    # Chapitres : lignes de la description qui commencent par un horodatage (00:00, 1:02:03...)
+    # Chapitres : lignes de la description qui commencent par un horodatage (00:00, 1:02:03, [00:00]...)
     chapitres = []
     for ligne in (description or "").splitlines():
-        m = re.match(r"^\s*((?:\d{1,2}:)?\d{1,2}:\d{2})\s*[-:–]?\s*(.+?)\s*$", ligne)
+        m = re.match(r"^\s*\[?((?:\d{1,2}:)?\d{1,2}:\d{2})\]?\s*[-:–]?\s*(.+?)\s*$", ligne)
         if m:
             chapitres.append({"time": mmss(en_secondes(m.group(1))), "title": m.group(2)})
 
