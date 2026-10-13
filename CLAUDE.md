@@ -86,6 +86,6 @@ Liste de référence : `E:\01_MAPLE_LEAF_SOUDURE\Articles\Videos\liste-videos.md
 4. Données réelles de la vidéo : `py -3.12 _outils/youtube_infos.py <lien>`.
 5. Rédaction selon les règles de ce fichier ; commentaire « à vérifier » en cas d'ambiguïté.
 6. Vérifications (les quatre scripts ci-dessus et le validateur schema.org), commit sans push.
-7. Arrêt : URL locale de relecture, points « à vérifier », description YouTube mise à jour. Push seulement après accord.
+7. Arrêt : URL locale de relecture, points « à vérifier », description YouTube mise à jour de chaque vidéo, enregistrée dans `<dossier de la vidéo>\description-youtube.txt` (hors dépôt, à remettre à jour si l'article est corrigé). Push seulement après accord.
 
 `_outils/glossaire-local.txt` contient des noms sensibles (clients, personnes) : il n'est jamais versionné.
