@@ -6,7 +6,7 @@ Usage :
     py -3.12 _outils/verifier-article.py _posts/AAAA-MM-JJ-titre.md
 
 Erreurs (code de sortie 1) :
-  - en-tête incomplet : title, description (155 caractères maximum), date, category (une des 4)
+  - en-tête incomplet : title, description (155 caractères maximum), date, category (un des piliers de _data/piliers.yml)
   - vidéo : champs vidéo manquants, chapitres non croissants ou au-delà de la durée
   - H2 formulé en question : réponse directe hors de 40 à 60 mots
   - tirets cadratins, marqueurs [[ ... ]]

@@ -52,7 +52,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      # Une seule catégorie par article, parmi les 4 piliers (_data/piliers.yml)
+      # Une seule catégorie par article, parmi les 5 piliers (_data/piliers.yml)
       permalink: /:categories/:title/
 
 # Exclure du build (docs internes : jamais publiés)

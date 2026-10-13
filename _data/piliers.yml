@@ -1,9 +1,13 @@
-# Les 4 sections du site. Chaque article déclare UNE de ces catégories (champ « category »).
+# Les 5 sections du site. Chaque article déclare UNE de ces catégories (champ « category »).
 # slug = catégorie = URL du pilier (/slug/) = préfixe des articles (/slug/titre-article/)
 - slug: formation-soudure
   titre: "Formation soudure"
   menu: "Se former"
   description: "Devenir soudeur : certifications, formations et centres de formation."
+- slug: techniques-soudure
+  titre: "Techniques de soudure"
+  menu: "Techniques"
+  description: "Procédés, réglages et sécurité du soudage."
 - slug: carriere-soudeur
   titre: "Carrière de soudeur"
   menu: "Carrière"

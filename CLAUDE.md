@@ -19,6 +19,7 @@
 ```
 /                               Accueil (JSON-LD WebSite)
 /formation-soudure/             Pilier : devenir soudeur, certifications, formations, centres
+/techniques-soudure/            Pilier : procédés, réglages, positions, sécurité et santé du soudeur
 /carriere-soudeur/              Pilier : soudeur salarié, salaires, expatriation, évolution
 /entreprendre-soudure/          Pilier : à son compte, statut, tarifs, clients, atelier (+ carte Soudeur à Ton Compte)
 /ia-soudure/                    Pilier : IA appliquée à la soudure et à la gestion d'atelier, articles sur les outils
@@ -42,7 +43,7 @@
 ## Articles
 
 - Fichier : `_posts/AAAA-MM-JJ-titre.md`, URL : `/<category>/<titre>/`.
-- Chaque article déclare UNE seule catégorie dans son en-tête, `category: ...`, parmi : `formation-soudure`, `carriere-soudeur`, `entreprendre-soudure`, `ia-soudure`. Jamais `categories:`.
+- Chaque article déclare UNE seule catégorie dans son en-tête, `category: ...`, parmi : `formation-soudure`, `techniques-soudure`, `carriere-soudeur`, `entreprendre-soudure`, `ia-soudure`. Jamais `categories:`.
 - Les articles sur les outils vont dans `ia-soudure`.
 - Le gabarit ajoute le fil d'Ariane, le lien vers le pilier et « À lire aussi » (jusqu'à 3 articles de la même catégorie).
 - Vidéo : `intro` (Markdown, affichée avant la vidéo), `youtube_id`, `video_title`, `video_description`, `video_thumbnail`, `video_duration`, `video_upload_date` et `chapters`, avec des valeurs réelles relevées sur YouTube. Le gabarit génère le JSON-LD VideoObject avec un Clip par chapitre.
