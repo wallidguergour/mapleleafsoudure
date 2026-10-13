@@ -120,11 +120,11 @@ videos_complementaires:
 
 ## Combien gagne un soudeur au Canada ?
 
-À Québec, une offre de soudeur que j'ai analysée paie entre 29 $ de l'heure pour un débutant et 40 $ pour la fourchette haute. Sur une base de 40 heures par semaine, 40 $ de l'heure donnent 6 933 $ brut, soit 4 622 $ net par mois, sans primes ni heures supplémentaires.
+À Québec, une offre de soudeur que j'ai analysée paie entre 29 $ brut de l'heure pour un débutant et 40 $ pour la fourchette haute. Sur une base de 40 heures par semaine, 40 $ de l'heure donnent 6 933 $ brut, soit 4 622 $ net par mois, sans primes ni heures supplémentaires.
 
 Ce net vient d'un calculateur brut-net pour le Québec : les prélèvements représentent environ 33,3 % du brut. Le taux de change varie entre 1,50 et 1,60 $ pour 1 € selon la période. Au taux de 1,60 $ que j'ai utilisé en mai 2026, ces 4 622 $ font environ 2 891 € net par mois.
 
-La ville de Québec ressort largement parce que c'est un gros centre industriel, et les salaires y sont vraiment élevés. En moyenne, si tu es bon, tu peux toucher 35 $ de l'heure et plus, soit environ 21,90 à 23,30 € selon le taux de change. En 2023, quand j'ai quitté la France, un très bon soudeur de la région lyonnaise était payé 13 à 13,50 € de l'heure en intérim.
+La ville de Québec ressort largement parce que c'est un gros centre industriel, et les salaires y sont vraiment élevés. En moyenne, si tu es bon, tu peux toucher 35 $ brut de l'heure et plus, soit environ 21,90 à 23,30 € brut selon le taux de change. En 2023, quand j'ai quitté la France, un très bon soudeur de la région lyonnaise était payé 13 à 13,50 € brut de l'heure en intérim.
 
 La fourchette haute, c'est ce que je touche aujourd'hui. Ici, quand tu passes ton compagnonnage, tu te retrouves automatiquement dans une des fourchettes les plus élevées. Mon parcours donne une idée de la progression :
 
@@ -140,11 +140,11 @@ Pour tout ce qui touche aux salaires et à l'évolution, consulte aussi la secti
 
 ## Quel est le salaire d'un soudeur au Québec comparé à la France ?
 
-Pour le même métier, l'écart est énorme. L'offre de Québec donne environ 2 891 € net par mois sans heures supplémentaires. Une offre de soudeur près de Lyon, à 14,30 € de l'heure, donne environ 1 692 € net, et une offre de soudeur nucléaire expérimenté, à 35 000 € par an, environ 2 275 € net.
+Pour le même métier, l'écart est énorme. L'offre de Québec donne environ 2 891 € net par mois sans heures supplémentaires. Une offre de soudeur près de Lyon, à 14,30 € brut de l'heure, donne environ 1 692 € net, et une offre de soudeur nucléaire expérimenté, à 35 000 € par an, environ 2 275 € net.
 
 {% include video-complementaire.html id="09d-FSB01kk" %}
 
-J'ai comparé deux villes de taille comparable : Québec et Lyon, à superficie et population à peu près égales. À Lyon, je n'ai pas trouvé d'offre vraiment équivalente dans un rayon de 25 kilomètres. Une offre en CDI payait entre 13,30 et 14,30 € de l'heure : c'est une énorme baisse.
+J'ai comparé deux villes de taille comparable : Québec et Lyon, à superficie et population à peu près égales. À Lyon, je n'ai pas trouvé d'offre vraiment équivalente dans un rayon de 25 kilomètres. Une offre en CDI payait entre 13,30 et 14,30 € brut de l'heure : c'est une énorme baisse.
 
 Attention, je ne dis pas qu'on ne peut pas gagner sa vie en France. Quand j'étais à mon compte comme chaudronnier-soudeur, certains mois, je dégageais 4 000 à 4 300 € en super net, après l'Urssaf et l'impôt sur le revenu. C'est possible si tu as de bonnes mains, un savoir-faire et un réseau. Mais comme salarié, le Canada paie bien mieux.
 
@@ -154,8 +154,8 @@ Attention, je ne dis pas qu'on ne peut pas gagner sa vie en France. Quand j'éta
     <tr><th></th><th>Québec</th><th>Région de Lyon</th></tr>
   </thead>
   <tbody>
-    <tr><th scope="row">Taux horaire de l'offre</th><td>29 à 40 $</td><td>13,30 à 14,30 €</td></tr>
-    <tr><th scope="row">Net mensuel, sans heures supplémentaires</th><td>4 622 $, soit environ 2 891 € (à 40 $ de l'heure, 1 € pour 1,60 $)</td><td>Environ 1 692 € (à 14,30 € de l'heure)</td></tr>
+    <tr><th scope="row">Taux horaire brut de l'offre</th><td>29 à 40 $</td><td>13,30 à 14,30 €</td></tr>
+    <tr><th scope="row">Net mensuel, sans heures supplémentaires</th><td>4 622 $, soit environ 2 891 € (à 40 $ brut de l'heure, 1 € pour 1,60 $)</td><td>Environ 1 692 € (à 14,30 € brut de l'heure)</td></tr>
     <tr><th scope="row">Soudeur nucléaire expérimenté</th><td></td><td>35 000 € par an, environ 2 275 € net par mois</td></tr>
     <tr><th scope="row">Loyer d'un vrai appartement en centre-ville</th><td>990 $ en mai 2026, soit environ 619 €</td><td>Environ 1 100 €</td></tr>
   </tbody>
