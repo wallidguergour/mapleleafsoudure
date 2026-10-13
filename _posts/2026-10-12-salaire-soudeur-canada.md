@@ -122,8 +122,10 @@ videos_complementaires:
 
 À Québec, une offre de soudeur que j'ai analysée paie entre 29 $ de l'heure pour un débutant et 40 $ pour la fourchette haute. Sur une base de 40 heures par semaine, 40 $ de l'heure donnent 6 933 $ brut, soit 4 622 $ net par mois, sans primes ni heures supplémentaires.
 
-Ce net vient d'un calculateur brut-net pour le Québec : les prélèvements représentent environ 33,3 % du brut. Au taux de 1 € pour 1,60 $, ces 4 622 $ font environ 2 891 € net par mois.
-<!-- à vérifier : 020 utilise 1 € = 1,60 $ ; 002 sous-entend 1 € ≈ 1,50 $ (passage partiellement manquant dans la transcription, vers 04:26). -->
+Ce net vient d'un calculateur brut-net pour le Québec : les prélèvements représentent environ 33,3 % du brut. Le taux de change varie entre 1,50 et 1,60 $ pour 1 € selon la période. Au taux de 1,60 $ que j'ai utilisé en mai 2026, ces 4 622 $ font environ 2 891 € net par mois.
+
+La ville de Québec ressort largement parce que c'est un gros centre industriel, et les salaires y sont vraiment élevés. En moyenne, si tu es bon, tu peux toucher 35 $ de l'heure et plus. Quand j'ai quitté la France, dans la région lyonnaise, un très bon soudeur était payé 13 à 13,50 € de l'heure en intérim.
+<!-- à vérifier : dans 002 (vers 05:05), l'écart entre 13,50 € et 35 $ est estimé à « peut-être 7,50 € » ; au taux de 1,50 $ cité juste avant, 35 $ font environ 23,30 €, soit un écart d'environ 9,80 €. Chiffre non repris. -->
 
 La fourchette haute, c'est ce que je touche aujourd'hui. Ici, quand tu passes ton compagnonnage, tu te retrouves automatiquement dans une des fourchettes les plus élevées. Mon parcours donne une idée de la progression :
 
@@ -132,7 +134,8 @@ La fourchette haute, c'est ce que je touche aujourd'hui. Ici, quand tu passes to
 - **Aujourd'hui :** la fourchette haute, autour de 40 $ de l'heure.
 
 En pratique, ici, c'est courant de toucher 1 000 à 1 060 $ par semaine en net. Et avec les heures supplémentaires, on monte vite : mon record, c'est environ 1 652 $ canadiens en une seule semaine, en blindant les heures sup.
-<!-- à vérifier : taux de majoration des heures supplémentaires (phrase coupée dans la transcription de 020). -->
+
+Au Québec, la règle est fixée par la Loi sur les normes du travail : au-delà d'une semaine normale de 40 heures, chaque heure supplémentaire est payée à taux et demi, soit 50 % de plus que le taux horaire habituel. Certaines catégories de travailleurs font exception. Source : [CNESST, Heures supplémentaires](https://www.cnesst.gouv.qc.ca/fr/conditions-travail/salaire-paye/salaire/heures-supplementaires).
 
 Pour tout ce qui touche aux salaires et à l'évolution, consulte aussi la section [Carrière de soudeur](/carriere-soudeur/).
 
@@ -153,9 +156,9 @@ Attention, je ne dis pas qu'on ne peut pas gagner sa vie en France. Quand j'éta
   </thead>
   <tbody>
     <tr><th scope="row">Taux horaire de l'offre</th><td>29 à 40 $</td><td>13,30 à 14,30 €</td></tr>
-    <tr><th scope="row">Net mensuel, sans heures supplémentaires</th><td>4 622 $, soit environ 2 891 € (à 40 $ de l'heure)</td><td>Environ 1 692 € (à 14,30 € de l'heure)</td></tr>
+    <tr><th scope="row">Net mensuel, sans heures supplémentaires</th><td>4 622 $, soit environ 2 891 € (à 40 $ de l'heure, 1 € pour 1,60 $)</td><td>Environ 1 692 € (à 14,30 € de l'heure)</td></tr>
     <tr><th scope="row">Soudeur nucléaire expérimenté</th><td></td><td>35 000 € par an, environ 2 275 € net par mois</td></tr>
-    <tr><th scope="row">Loyer d'un vrai appartement en centre-ville</th><td>990 $, soit environ 619 €</td><td>Environ 1 100 €</td></tr>
+    <tr><th scope="row">Loyer d'un vrai appartement en centre-ville</th><td>990 $ en mai 2026, soit environ 619 €</td><td>Environ 1 100 €</td></tr>
   </tbody>
 </table>
 </div>
@@ -164,9 +167,8 @@ Mon conseil reste le même que dans toutes mes vidéos : ne sois pas juste un so
 
 ## Le coût de la vie au Québec est-il plus bas qu'en France ?
 
-Oui, surtout pour le logement. Je paie 990 $ canadiens par mois, soit environ 619 €, pour un vrai appartement au centre-ville de Québec, pas un studio. À Lyon, dans un quartier équivalent, il faut compter autour de 1 100 € par mois. Le carburant aussi est moins cher au Canada qu'en France.
+Oui, surtout pour le logement. En mai 2026, je payais 990 $ canadiens par mois, soit environ 619 €, pour un vrai appartement au centre-ville de Québec, pas un studio. À Lyon, dans un quartier équivalent, il faut compter autour de 1 100 € par mois. Le carburant aussi est moins cher au Canada qu'en France.
 
-<!-- à vérifier : loyer d'« environ 900 $ » dans la vidéo de septembre 2025 (002), contre 990 $ dans celle de mai 2026 (020). -->
 Mon appartement a une cave, le stationnement est gratuit dans tout mon pâté de maisons, et je fais tout à pied : je n'ai pas forcément besoin de voiture.
 
 Côté Lyon, j'ai regardé les annonces : un appartement de deux chambres autour de 1 090 €, un appartement dans le 1er arrondissement à 1 095 € charges comprises. Et pour 529 à 544 € par mois, tu n'as qu'une colocation, sans intimité. En 2019, avant le Covid, je payais environ 450 € pour un appartement en France. Les loyers sont devenus délirants.
@@ -179,11 +181,9 @@ Le plus simple, c'est le PVT, le permis vacances-travail : un permis ouvert, qui
 
 J'avais 34 ans quand je suis parti : c'était la dernière année où je pouvais faire un PVT. Il faut partir au plus tard à la veille de ses 36 ans.
 
-L'Entrée express permet d'obtenir directement la résidence permanente. La carte de résident permanent se renouvelle tous les cinq ans. Ensuite, pour demander la citoyenneté, il faut environ 3 ans de présence au Canada en tant que résident permanent.
-<!-- à vérifier : les vidéos disent « 1100 jours » ; la page officielle d'IRCC indique au moins 1 095 jours de présence au cours des 5 dernières années, dont au moins 730 jours comme résident permanent. -->
+L'Entrée express permet d'obtenir directement la résidence permanente. La carte de résident permanent se renouvelle tous les cinq ans. Ensuite, pour demander la citoyenneté, il faut, selon IRCC, avoir été présent au Canada au moins 1 095 jours au cours des 5 dernières années, dont au moins 730 jours comme résident permanent.
 
-Le Canada mène aussi une vraie politique d'accueil des francophones, y compris hors du Québec, en Alberta, au Manitoba ou en Ontario. Le programme Mobilité francophone permet de travailler hors du Québec si tu as une offre d'emploi et un niveau de français suffisant.
-<!-- à vérifier : dans la vidéo 005, j'évoque une résidence permanente directe ou après 6 mois de présence ; selon IRCC, Mobilité francophone est un permis de travail, l'expérience acquise aidant ensuite à obtenir la résidence permanente. -->
+Le Canada mène aussi une vraie politique d'accueil des francophones, y compris hors du Québec, en Alberta, au Manitoba ou en Ontario. Le programme Mobilité francophone permet de travailler hors du Québec si tu as une offre d'emploi et un niveau de français suffisant. C'est un permis de travail, pas une résidence permanente : l'expérience acquise sur place aide ensuite à l'obtenir.
 
 Tous les programmes sont détaillés sur le site d'Immigration, Réfugiés et Citoyenneté Canada (IRCC). Et ton diplôme français compte : mon Titre Pro soudeur industriel a été accepté dans mon dossier d'immigration. J'en parle dans l'article [Titre Pro, CQPM ou CQP soudeur industriel](/formation-soudure/titre-pro-cqpm-cqp-soudeur-industriel/).
 
@@ -203,9 +203,10 @@ Et un atout que beaucoup sous-estiment : en Amérique du Nord comme en Australie
 
 ## Combien coûte la santé au Canada pour un soudeur immigré ?
 
-C'est le piège dont on parle le moins. Les soins, et surtout le dentaire, coûtent extrêmement cher en Amérique du Nord. Une consultation de routine à l'hôpital peut être facturée autour de 1 500 $, et un Français que je connais a payé 6 000 $ pour soigner deux dents. Fais un check-up complet et soigne-toi avant de partir.
+C'est le piège dont on parle le moins. Les soins, et surtout le dentaire, coûtent extrêmement cher en Amérique du Nord : un Français que je connais a payé 6 000 $ pour soigner deux dents. Fais un check-up complet et soigne-toi avant de partir.
 
-<!-- à vérifier : la consultation à 1 500 $ concerne une personne qui n'avait peut-être pas encore droit à l'assurance maladie du Québec (RAMQ) ; préciser ou retirer. -->
+J'ai accompagné une proche à l'hôpital pour un simple contrôle de routine : elle n'avait pas encore sa carte d'assurance maladie du Québec (RAMQ), et on lui a demandé environ 1 500 $.
+
 Pour mon visa, j'ai dû passer une visite médicale obligatoire, qui m'avait coûté environ 280 € : radio des poumons, tests de dépistage, contrôle des dents, de l'ouïe et de la vue. Si ta santé ou tes dents posent problème, ça peut compliquer les choses.
 
 Avec la résidence permanente, tu as droit à l'assurance maladie du Québec, la RAMQ. Mais les soins dentaires restent chers. Si tu as travaillé des années en France, te faire soigner là-bas avant de partir n'a rien de profiteur : c'est un droit, tu as cotisé.
