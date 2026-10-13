@@ -124,8 +124,7 @@ videos_complementaires:
 
 Ce net vient d'un calculateur brut-net pour le Québec : les prélèvements représentent environ 33,3 % du brut. Le taux de change varie entre 1,50 et 1,60 $ pour 1 € selon la période. Au taux de 1,60 $ que j'ai utilisé en mai 2026, ces 4 622 $ font environ 2 891 € net par mois.
 
-La ville de Québec ressort largement parce que c'est un gros centre industriel, et les salaires y sont vraiment élevés. En moyenne, si tu es bon, tu peux toucher 35 $ de l'heure et plus. Quand j'ai quitté la France, dans la région lyonnaise, un très bon soudeur était payé 13 à 13,50 € de l'heure en intérim.
-<!-- à vérifier : dans 002 (vers 05:05), l'écart entre 13,50 € et 35 $ est estimé à « peut-être 7,50 € » ; au taux de 1,50 $ cité juste avant, 35 $ font environ 23,30 €, soit un écart d'environ 9,80 €. Chiffre non repris. -->
+La ville de Québec ressort largement parce que c'est un gros centre industriel, et les salaires y sont vraiment élevés. En moyenne, si tu es bon, tu peux toucher 35 $ de l'heure et plus, soit environ 21,90 à 23,30 € selon le taux de change. En 2023, quand j'ai quitté la France, un très bon soudeur de la région lyonnaise était payé 13 à 13,50 € de l'heure en intérim.
 
 La fourchette haute, c'est ce que je touche aujourd'hui. Ici, quand tu passes ton compagnonnage, tu te retrouves automatiquement dans une des fourchettes les plus élevées. Mon parcours donne une idée de la progression :
 
