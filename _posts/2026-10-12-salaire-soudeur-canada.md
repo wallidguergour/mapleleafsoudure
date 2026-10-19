@@ -146,7 +146,7 @@ Pour le même métier, l'écart est énorme. L'offre de Québec donne environ 2�
 
 J'ai comparé deux villes de taille comparable : Québec et Lyon, à superficie et population à peu près égales. À Lyon, je n'ai pas trouvé d'offre vraiment équivalente dans un rayon de 25 kilomètres. Une offre en CDI payait entre 13,30 et 14,30 € brut de l'heure : c'est une énorme baisse.
 
-Attention, je ne dis pas qu'on ne peut pas gagner sa vie en France. Quand j'étais à mon compte comme chaudronnier-soudeur, certains mois, je dégageais 4 000 à 4 300 € en super net, après l'Urssaf et l'impôt sur le revenu. C'est possible si tu as de bonnes mains, un savoir-faire et un réseau. Mais comme salarié, le Canada paie bien mieux.
+Attention, je ne dis pas qu'on ne peut pas gagner sa vie en France. Quand j'étais à mon compte comme chaudronnier-soudeur, avant mon départ en 2023, je gagnais en moyenne plus de 4 000 € par mois, et certains mois près de 5 000 €, net après cotisations et impôts. C'est possible si tu as de bonnes mains, un savoir-faire et un réseau. Mais comme salarié, le Canada paie bien mieux.
 
 <div class="mls-table-wrap">
 <table>

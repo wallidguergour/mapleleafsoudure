@@ -49,8 +49,7 @@ videos_complementaires:
 
 ## Combien gagne un soudeur indépendant ?
 
-Quand j'étais à mon compte en France, je gagnais entre 4 500 et 5 000 € « super net » par mois, c'est-à-dire après l'Urssaf et l'impôt sur le revenu. C'est le gros avantage d'être indépendant : l'argent. En contrepartie, tu acceptes une part d'instabilité que le salariat ne connaît pas.
-<!-- à vérifier : 009 (vers 02:00, réécouté) dit « entre 4 500 et 5 000 € super net par mois » ; l'article sur le salaire au Canada (vidéo 002) dit « certains mois, 4 000 à 4 300 € en super net ». -->
+Pendant mes années d'indépendant en France, avant mon départ en 2023, je gagnais en moyenne plus de 4 000 € par mois, et certains mois près de 5 000 €, net après cotisations et impôts. C'est le gros avantage d'être indépendant : l'argent. En contrepartie, tu acceptes une part d'instabilité que le salariat ne connaît pas.
 
 J'habitais dans une petite ville médiévale d'environ 6 000 habitants. Quand tu vis à la campagne avec ces revenus, tu vis très bien, même avec l'inflation : les loyers sont bas, et j'achetais mes légumes chez les paysans à côté de chez moi. J'avais une grosse capacité d'épargne.
 
@@ -144,7 +143,7 @@ Pas besoin d'un gros investissement pour démarrer : les grandes entreprises te 
 
 Non. Sur le terrain, ton pire ennemi, ce sont les autres. En dehors de tes clients et de ton comptable, personne dans ton entourage professionnel ne doit savoir que tu es indépendant. La jalousie peut ruiner une mission qui se passait très bien, même chez un bon client.
 
-Je l'ai vécu chez un client où je soudais du matériel agricole. Les six premiers mois étaient parfaits. Puis un collègue a appris que j'étais à mon compte et a expliqué à tout l'atelier combien je gagnais. À partir de là, l'ambiance s'est dégradée : mon poste à souder était régulièrement déréglé, on cherchait à me causer des ennuis au contrôle qualité.
+Je l'ai vécu chez un client. Les premiers mois se passaient très bien. Puis un collègue a appris que j'étais à mon compte et a expliqué à tout l'atelier combien je gagnais. À partir de là, l'ambiance s'est dégradée : mon poste à souder était régulièrement déréglé, on cherchait à me causer des ennuis au contrôle qualité.
 
 Les gens voient ton chiffre d'affaires, pas ce que tu paies derrière : l'Urssaf chaque mois, ton impôt sur le revenu, ton matériel. Ils ne comprennent pas qu'ils pourraient eux aussi gagner plus en prenant des risques. Garde ton statut pour toi.
 
