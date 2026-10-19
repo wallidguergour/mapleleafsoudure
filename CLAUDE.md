@@ -64,6 +64,38 @@
 - Aucune page indexable ne doit contenir de marqueur `[[ ... ]]`. Une page en cours reste en `robots: "noindex, follow"`, `sitemap: false` et `llms: false` dans son en-tête, à retirer une fois terminée.
 - Aucun JSON-LD sur des valeurs non confirmées : le préparer en commentaire HTML (ex. SoftwareApplication de Harword) ou le générer seulement quand les données existent (ex. FAQPage depuis le champ `faq`).
 
+## Articles à réviser chaque année
+
+Articles contenant des chiffres réglementaires ou datés (cotisations, plafonds, ACRE, TVA, salaires, taux de change, loyers). Chaque année (en janvier, et en juillet pour les mesures qui changent en cours d'année), revérifier ces chiffres sur leurs sources, corriger l'article, mettre à jour la mention « Chiffres à jour au … » et la date de vérification ci-dessous. Tout nouvel article avec ce type de chiffres est ajouté à cette liste, et ses données réglementaires portent la mention visible « Chiffres à jour au <date> ».
+
+Les chiffres tirés d'une vidéo (témoignage, offre d'emploi analysée) ne se « mettent pas à jour » : ils restent datés de la vidéo. Seules les règles officielles sont corrigées.
+
+### `/carriere-soudeur/salaire-soudeur-canada/` (`_posts/2026-10-12-salaire-soudeur-canada.md`), vérifié en octobre 2026
+
+- Heures supplémentaires au Québec : taux et demi (+50 %) au-delà de 40 h par semaine. Source : [CNESST](https://www.cnesst.gouv.qc.ca/fr/conditions-travail/salaire-paye/salaire/heures-supplementaires).
+- PVT : 18 à 35 ans inclus, jusqu'à 24 mois, permis ouvert. Source : [IRCC, Expérience internationale Canada](https://www.canada.ca/fr/immigration-refugies-citoyennete/services/travailler-canada/eic.html).
+- Citoyenneté : 1 095 jours de présence sur 5 ans, dont 730 comme résident permanent. Source : [IRCC, admissibilité](https://www.canada.ca/fr/immigration-refugies-citoyennete/services/citoyennete-canadienne/devenir-citoyen-canadien/admissibilite.html).
+- Carte de résident permanent valide 5 ans. Source : [IRCC, carte RP](https://www.canada.ca/fr/immigration-refugies-citoyennete/services/residents-permanents/carte.html).
+- Mobilité francophone : permis de travail hors Québec avec offre d'emploi, pas de résidence permanente directe. Source : page « Mobilité francophone » d'IRCC (canada.ca).
+- Plafond CELI : 7 000 $ en 2026. Source : [Agence du revenu du Canada](https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/compte-epargne-libre-impot/cotisations.html).
+- Taux de change : « entre 1,50 et 1,60 $ pour 1 € selon la période », conversions au taux de 1,60 $ (mai 2026) : 2 891 € net, 619 € de loyer, 21,90 à 23,30 € brut de l'heure. À revoir si le taux sort de cette fourchette.
+- Chiffres datés des vidéos (ne pas actualiser, garder la date) : offre à 29 à 40 $ brut de l'heure, 6 933 $ brut et 4 622 $ net par mois (mai 2026, vidéo 020) ; loyer de 990 $ (mai 2026) ; offres lyonnaises à 13,30 à 14,30 € brut de l'heure, 1 692 € et 2 275 € net (mai 2026) ; 13 à 13,50 € brut de l'heure en intérim (départ en 2023).
+
+### `/entreprendre-soudure/soudeur-independant-salaire-tarifs/` (`_posts/2026-10-19-soudeur-independant-salaire-tarifs.md`), vérifié le 19 octobre 2026
+
+Mention visible « Chiffres à jour au 19 octobre 2026 » à mettre à jour, ainsi que le tableau des revenus nets (recalculé avec ces taux).
+
+- Cotisations micro-entreprise, prestations de services commerciales et artisanales (BIC) : 21,2 % ; contribution à la formation professionnelle des artisans : 0,3 % ; versement libératoire services BIC : 1,7 %. Source : [autoentrepreneur.urssaf.fr](https://www.autoentrepreneur.urssaf.fr/portail/accueil/sinformer-sur-le-statut/lessentiel-du-statut.html).
+- ACRE : 15,9 % pendant 12 mois pour une activité commencée depuis le 1er juillet 2026 (10,6 % avant) ; demande à l'Urssaf dans les 60 jours, conditions restreintes depuis le 1er janvier 2026. Sources : [Service-Public.fr](https://entreprendre.service-public.fr/vosdroits/F11677), [urssaf.fr](https://www.urssaf.fr/accueil/actualites/acre-nouvelles-regles-demarches.html).
+- Plafond de chiffre d'affaires, prestations de services : 83 600 € (2026). Franchise en base de TVA, services : 37 500 €, seuil majoré 41 250 €. Source : autoentrepreneur.urssaf.fr (ci-dessus).
+- ARCE : 60 % des droits ARE restants, en deux versements, ou maintien partiel de l'ARE. Source : [France Travail](https://www.francetravail.fr/candidat/je-creereprends-une-entreprise/les-aides-financieres-creation-d/aide-a-la-reprise-et-a-la-creati.html).
+- Chiffres datés des vidéos (ne pas actualiser) : 4 500 à 5 000 € super net par mois quand j'étais à mon compte en France ; 73 € de l'heure sur chantier (2020) ; 50 € de l'heure chez les particuliers ; simulation à 30 € de l'heure et 29,25 € la pièce ; taux de la vidéo (fin 2025) : ACRE à 10,6 %, total 12,3 %.
+
+### `/formation-soudure/titre-pro-cqpm-cqp-soudeur-industriel/` (`_posts/2026-10-12-titre-pro-cqpm-cqp-soudeur-industriel.md`), vérifié en octobre 2026
+
+- Taux d'insertion, nombres de certifiés et VAE (2021 et 2022), fiches et dates d'enregistrement. Sources : France Compétences, [RNCP 40037](https://www.francecompetences.fr/recherche/rncp/40037/) (Titre Pro) et [RNCP 39243](https://www.francecompetences.fr/recherche/rncp/39243/) (CQPM). Ajouter les années plus récentes quand elles sont publiées.
+- Salaire en intérim : 1 900 à 2 000 € net par mois (témoignage de la vidéo, à garder daté).
+
 ## Vérifications
 
 - `bash _outils/verifier-nom.sh` : aucun nom réel hors `/mentions-legales/` (noms lus dans `.noms-interdits`, fichier local non versionné).
