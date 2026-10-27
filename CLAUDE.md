@@ -91,6 +91,15 @@ Mention visible « Chiffres à jour au 19 octobre 2026 » à mettre à jour, ain
 - ARCE : 60 % des droits ARE restants, en deux versements, ou maintien partiel de l'ARE. Source : [France Travail](https://www.francetravail.fr/candidat/je-creereprends-une-entreprise/les-aides-financieres-creation-d/aide-a-la-reprise-et-a-la-creati.html).
 - Chiffres datés des vidéos (ne pas actualiser) : en moyenne plus de 4 000 € par mois, certains mois près de 5 000 €, net après cotisations et impôts, pendant mes années d'indépendant en France avant 2023 (même formulation dans l'article sur le Canada) ; 73 € de l'heure sur chantier (2020) ; 50 € de l'heure chez les particuliers ; simulation à 30 € de l'heure et 29,25 € la pièce ; taux de la vidéo (fin 2025) : ACRE à 10,6 %, total 12,3 %.
 
+### `/formation-soudure/formation-soudeur/` (`_posts/2026-10-26-formation-soudeur.md`), vérifié le 26 octobre 2026
+
+Mention visible « Informations à jour au 26 octobre 2026 » à mettre à jour.
+
+- Mission locale : accompagnement des jeunes de 16 à 25 ans ; France Travail : demandeurs d'emploi. Source : [France Travail](https://mes-aides.francetravail.fr/trouver-un-emploi/insertion-professionnelle/les-missions-locales/accompagnement-vers-l-emploi-des-jeunes-16-25-ans).
+- AFPA : établissement public (EPIC) depuis le 1er janvier 2017. Source : [ministère du Travail](https://travail-emploi.gouv.fr/lagence-nationale-pour-la-formation-professionnelle-des-adultes-afpa).
+- IWS, IWT, IWE : diplômes internationaux préparés à l'Institut de Soudure ; prérequis à revérifier. Source : [Institut de Soudure](https://formation.isgroupe.com/fr/formations_is/certificats_internationaux/formations-certifications-internationales).
+- Chiffres datés de la vidéo (ne pas actualiser) : formations Titre Pro et CQPM de 6 à 8 mois ; BEP en 2007, Titre Pro repassé en 2017-2018.
+
 ### `/formation-soudure/titre-pro-cqpm-cqp-soudeur-industriel/` (`_posts/2026-10-12-titre-pro-cqpm-cqp-soudeur-industriel.md`), vérifié en octobre 2026
 
 - Taux d'insertion, nombres de certifiés et VAE (2021 et 2022), fiches et dates d'enregistrement. Sources : France Compétences, [RNCP 40037](https://www.francecompetences.fr/recherche/rncp/40037/) (Titre Pro) et [RNCP 39243](https://www.francecompetences.fr/recherche/rncp/39243/) (CQPM). Ajouter les années plus récentes quand elles sont publiées.
