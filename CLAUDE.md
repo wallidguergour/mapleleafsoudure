@@ -91,7 +91,7 @@ Mention visible « Chiffres à jour au 19 octobre 2026 » à mettre à jour, ain
 - ARCE : 60 % des droits ARE restants, en deux versements, ou maintien partiel de l'ARE. Source : [France Travail](https://www.francetravail.fr/candidat/je-creereprends-une-entreprise/les-aides-financieres-creation-d/aide-a-la-reprise-et-a-la-creati.html).
 - Chiffres datés des vidéos (ne pas actualiser) : en moyenne plus de 4 000 € par mois, certains mois près de 5 000 €, net après cotisations et impôts, pendant mes années d'indépendant en France avant 2023 (même formulation dans l'article sur le Canada) ; 73 € de l'heure sur chantier (2020) ; 50 € de l'heure chez les particuliers ; simulation à 30 € de l'heure et 29,25 € la pièce ; taux de la vidéo (fin 2025) : ACRE à 10,6 %, total 12,3 %.
 
-### `/formation-soudure/formation-soudeur/` (`_posts/2026-10-26-formation-soudeur.md`), vérifié le 26 octobre 2026
+### `/formation-soudure/devenir-soudeur/` (`_posts/2026-10-26-devenir-soudeur.md`), vérifié le 26 octobre 2026
 
 Mention visible « Informations à jour au 26 octobre 2026 » à mettre à jour.
 
